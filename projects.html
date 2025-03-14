@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio - Projects</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+
+            height: 100%;
+        }
+
+        /* Full screen shader container */
+        .shader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1; /* Place behind other content */
+        }
+
+        /* Canvas element styling */
+        .shader-container canvas {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+
+        /* Loading/error message */
+        .message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5, #9600ff);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Base styles */
+:root {
+  --text-light: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --accent-primary: #00d2ff;
+  --accent-secondary: #9600ff;
+  --card-bg: rgba(10, 10, 15, 0.75);
+  --card-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Content container overlaying the shader */
+.content-container {
+  position: relative;
+  z-index: 10;
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  backdrop-filter: blur(3px);
+}
+
+/* Header styling */
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Projects grid layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.project-category h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.5rem;
+  color: var(--accent-primary);
+}
+
+/* Project cards */
+.project-card {
+  display: flex;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--card-border);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-primary);
+}
+
+.project-icon {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  font-size: 1.75rem;
+}
+
+.project-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tech-stack {
+  color: var(--accent-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .project-card {
+    flex-direction: column;
+  }
+  
+  .project-icon {
+    height: 60px;
+    width: 100%;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="mainSidebar">
+        <div class="sidebar-header">
+            <h2>vaibhav kumar singh</h2>
+            <button class="toggle-btn" id="sidebarToggle">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link" data-page="about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="hobby.html" class="nav-link" data-page="hobby"><i class="fas fa-heart"></i> Hobbies</a></li>
+            <li><a href="projects.html" class="nav-link" data-page="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="social-icons">
+                <!-- Add your social media icons here -->
+            </div>
+        </div>
+    </nav>
+
+ <!-- Full screen shader container -->
+    <div class="shader-container" id="shader-container">
+        <div class="message" id="loading-message">Loading shader animation...</div>
+    </div>
+
+    <!-- Your portfolio content would go here -->
+    <div class="content-container">
+        <header class="page-header">
+          <h1>My Projects</h1>
+          <p class="subtitle">Where Technology Meets Innovation</p>
+        </header>
+        
+        <div class="projects-grid">
+          <!-- Tech & AI Projects Section -->
+          <section class="project-category">
+            <h2>Technology & AI Projects</h2>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-video"></i></div>
+              <div class="project-content">
+                <h3>Automated YouTube Video Downloader & Subtitle Generator</h3>
+                <p class="tech-stack">Python, FFmpeg, yt-dlp, Whisper AI</p>
+                <p>Automates downloading YouTube videos and generating AI-powered subtitles, enhancing content accessibility.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+              <div class="project-content">
+                <h3>OCR Converter Using Mistral.ai</h3>
+                <p class="tech-stack">Python, Mistral.ai, OpenCV</p>
+                <p>Advanced AI-powered OCR solution for high-accuracy text extraction from images across multiple languages.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+              <div class="project-content">
+                <h3>2D Game Development</h3>
+                <p class="tech-stack">Unity, C#, Python</p>
+                <p>Interactive 2D game with AI-driven elements, dynamic enemy behavior, and structured level design.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-robot"></i></div>
+              <div class="project-content">
+                <h3>AI Ranking Software</h3>
+                <p class="tech-stack">Python, Scikit-learn, TensorFlow</p>
+                <p>AI-powered ranking system for dynamic scoring and comparisons across domains using NLP models.</p>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Business & Finance Section -->
+          <section class="project-category">
+            <h2>Business, Finance & Market Research</h2>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="project-content">
+                <h3>IPO Analysis and Ranking</h3>
+                <p>Ranked IPOs based on financial performance, sector trends, and management quality.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-coins"></i></div>
+              <div class="project-content">
+                <h3>Cryptocurrency Analysis</h3>
+                <p>In-depth analysis of blockchain functionality, adoption trends, and investment risks.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="project-content">
+                <h3>Indian Stock Market Sectors Analysis</h3>
+                <p>Identified growth opportunities in IT, Pharma, and Renewable Energy sectors.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-bitcoin"></i></div>
+              <div class="project-content">
+                <h3>Bitcoin's Performance During Crises</h3>
+                <p>Analyzed market behavior, volatility, and safe-haven potential during economic downturns.</p>
+              </div>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+              <div class="project-content">
+                <h3>Quick Commerce Sustainability Analysis</h3>
+                <p>Evaluated Zepto/Blinkit models' economic viability and consumer behavior shifts.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
+    <script>
+    // Wait for Three.js to load
+    function checkThreeJS() {
+        if (typeof THREE !== 'undefined') {
+            initShader();
+        } else {
+            setTimeout(checkThreeJS, 100);
+        }
+    }
+
+    // Initialize shader with Three.js
+    function initShader() {
+        const container = document.getElementById('shader-container');
+        const loadingMessage = document.getElementById('loading-message');
+        
+        try {
+            // Remove loading message
+            if (loadingMessage) {
+                loadingMessage.remove();
+            }
+            
+            // Get viewport dimensions
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Create Three.js scene
+            const scene = new THREE.Scene();
+            const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+            
+            // Create WebGL renderer
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+            
+            // Create shader material
+            const shaderMaterial = new THREE.ShaderMaterial({
+                uniforms: {
+                    time: { value: 0 },
+                    resolution: { value: new THREE.Vector2(width, height) }
+                },
+                vertexShader: `
+                    void main() {
+                        gl_Position = vec4(position, 1.0);
+                    }
+                `,
+                fragmentShader: `
+                    /*********
+                    * made by Matthias Hurrle (@atzedent)
+                    */
+                    precision highp float;
+                    uniform float time;
+                    uniform vec2 resolution;
+                    
+                    #define FC gl_FragCoord.xy
+                    #define R resolution
+                    #define T time
+                    #define S smoothstep
+                    #define MN min(R.x,R.y)
+                    #define SE(v,s) S(s+1./MN,s-1./MN,v)
+                    
+                    float pattern(vec2 uv) {
+                        float d=.0;
+                        for (float i=.0; i<3.; i++) {
+                            uv.x+=sin(T*(1.+i)+uv.y*1.5)*.2;
+                            d+=.005/abs(uv.x);
+                        }
+                        return d;	
+                    }
+                    
+                    vec3 scene(vec2 uv) {
+                        vec3 col=vec3(0);
+                        uv=vec2(atan(uv.x,uv.y)*2./6.28318,-log(length(uv))+T);
+                        for (float i=.0; i<3.; i++) {
+                            int k=int(mod(i,3.));
+                            col[k]+=pattern(uv+i*6./MN);
+                        }
+                        return col;
+                    }
+                    
+                    void main() {
+                        vec2 uv=(FC-.5*R)/MN;
+                        vec3 col=vec3(0);
+                        float s=12., e=9e-4;
+                        col+=e/(sin(uv.x*s)*cos(uv.y*s));
+                        uv.y+=R.x>R.y?.5:.5*(R.y/R.x);
+                        col+=scene(uv);
+                        gl_FragColor=vec4(col,1);
+                    }
+                `
+            });
+            
+            // Create a quad to fill the screen
+            const geometry = new THREE.PlaneGeometry(2, 2);
+            const quad = new THREE.Mesh(geometry, shaderMaterial);
+            scene.add(quad);
+            
+            // Handle window resizing
+            const handleResize = () => {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                renderer.setSize(width, height);
+                shaderMaterial.uniforms.resolution.value.set(width, height);
+            };
+            
+            window.addEventListener('resize', handleResize);
+            
+            // Animation loop
+            function animate(time) {
+                // Update time uniform (convert to seconds)
+                shaderMaterial.uniforms.time.value = time * 0.001;
+                
+                // Render scene
+                renderer.render(scene, camera);
+                
+                // Request next frame
+                requestAnimationFrame(animate);
+            }
+            
+            // Start animation loop
+            requestAnimationFrame(animate);
+            
+        } catch (error) {
+            console.error('Error initializing shader:', error);
+            
+            // Display error message
+            container.innerHTML = `
+                <div class="message">
+                    <div>
+                        <h3>Could not initialize shader</h3>
+                        <p>${error.message || 'Your browser may not support WebGL'}</p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Start when document is loaded
+    document.addEventListener('DOMContentLoaded', checkThreeJS);
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+</body>
+</html>

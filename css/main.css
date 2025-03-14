@@ -1,0 +1,497 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-bg: #0f0f0f;
+    --dark-surface: #1a1a1a;
+    --accent-color: #6d28d9; /* Purple accent */
+    --accent-gradient: linear-gradient(135deg, #6d28d9, #8b5cf6);
+    --text-primary: #f1f1f1;
+    --text-secondary: #a1a1aa;
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 280px;
+    background: var(--dark-surface);
+    color: var(--text-primary);
+    transition: var(--transition);
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header {
+    padding: 28px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(15, 15, 15, 0.3);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    position: relative;
+    transition: var(--transition);
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition);
+}
+
+.hamburger-icon::before {
+    top: -7px;
+}
+
+.hamburger-icon::after {
+    bottom: -7px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 16px 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 0;
+    margin: 4px 12px;
+}
+
+.sidebar-menu .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-menu .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gradient);
+    transform: scaleY(0);
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.sidebar-menu .nav-link:hover, 
+.sidebar-menu .nav-link.active {
+    background: rgba(109, 40, 217, 0.08);
+    color: var(--text-primary);
+}
+
+.sidebar-menu .nav-link:hover::before,
+.sidebar-menu .nav-link.active::before {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.sidebar-menu .nav-link i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(15, 15, 15, 0.3);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    margin-left: 280px;
+    padding: 40px;
+    transition: var(--transition);
+    min-height: 100vh;
+}
+
+.main-content {
+    background: var(--dark-surface);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card styles for projects */
+.card {
+    background: rgba(30, 30, 30, 0.6);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Button styles */
+.btn {
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.3);
+}
+
+/* Section headlines */
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 4px;
+    width: 60%;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+}
+
+/* Page Transitions */
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+/* Animation for page loading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.7s ease forwards;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* Skills tag styling */
+.skill-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(109, 40, 217, 0.1);
+    border-radius: 50px;
+    color: #a78bfa;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+    border: 1px solid rgba(109, 40, 217, 0.2);
+}
+
+.skill-tag:hover {
+    background: rgba(109, 40, 217, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    
+    .sidebar.active {
+        width: 280px;
+    }
+    
+    .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1100;
+        background: var(--dark-surface);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .content-wrapper {
+        margin-left: 0;
+        padding: 24px 16px;
+    }
+    
+    .content-wrapper.sidebar-active {
+        margin-left: 280px;
+    }
+    
+    .main-content {
+        padding: 24px 16px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+/* CSS for the toggle button */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: #6c47c9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: none; /* Hidden on desktop by default */
+  }
+  
+  /* Show the button on smaller screens */
+  @media (max-width: 768px) {
+    .sidebar-toggle-btn {
+      display: block;
+    }
+  }
+  
+  /* Sidebar positioning */
+  #mainSidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+  
+  /* When sidebar is inactive (hidden) */
+  #mainSidebar.active {
+    transform: translateX(-100%);
+  }
+  
+  /* Content positioning */
+  .content-wrapper {
+    margin-left: 250px; /* Same as sidebar width */
+    transition: margin 0.3s ease;
+  }
+  
+  /* When sidebar is inactive (hidden), expand content */
+  .content-wrapper.sidebar-active {
+    margin-left: 0;
+  }
+  
+  /* Base page structure */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Main content container */
+  .content-wrapper {
+    width: calc(100% - 250px); /* Full width minus sidebar */
+    min-height: 100vh;
+    margin-left: 250px; /* Equal to sidebar width */
+    transition: margin 0.3s ease, width 0.3s ease;
+  }
+  
+  /* When sidebar is hidden */
+  .content-wrapper.sidebar-active {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  /* For mobile view */
+  @media (max-width: 768px) {
+    #mainSidebar {
+      transform: translateX(-100%); /* Hidden by default on mobile */
+    }
+    
+    #mainSidebar.active {
+      transform: translateX(0); /* Visible when active */
+    }
+    
+    .content-wrapper {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
+  .content-wrapper {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    transition: margin 0.3s ease, width 0.3s ease;
+    /* Increase top padding to move content further down */
+    padding-top: 300px; /* Adjust this value as needed */
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        width: 100%;
+        margin-left: 0;
+        padding-top: 300px; /* Match desktop value */
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Change from -1 to a positive value but below sidebar */
+    pointer-events: auto; /* Allow interaction by default */
+}
+
+.sidebar {
+    /* Keep your existing styles */
+    z-index: 1000; /* Ensure sidebar stays above animation */
+}
+
+.sidebar-toggle-btn {
+    /* Keep your existing styles */
+    z-index: 1100; /* Ensure toggle stays above everything */
+}

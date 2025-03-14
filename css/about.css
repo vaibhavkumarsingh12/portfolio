@@ -1,0 +1,249 @@
+body,
+html{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+svg {
+      display: block;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+}
+  
+.scrollElement {
+      position: absolute;
+      height: 6000px;
+      width: 100px;
+      top: 0;
+      z-index: 0;
+}
+
+  .btn {
+      position: fixed;
+      bottom: 5%;
+      right: 0px;
+      transform: translateX(-50%);
+      border: 1px solid #fff;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.7em;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      cursor: pointer;
+      transition: all .3s;
+      z-index: 11;
+  }
+
+  .btn_works {
+      left: 100px;
+      right: unset;
+      text-decoration: none;
+  }
+
+  .btn:hover {
+      background: #ffffff;
+      color: #1B1734;
+  }
+
+
+
+
+
+  /* About page styles */
+.about-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    color: #ffffff;
+    z-index: 10;
+    padding: 80px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
+    backdrop-filter: blur(5px);
+}
+
+.about-content.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #F5C54E;
+}
+
+.about-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #FFAB93;
+    border-bottom: 2px solid #F07560;
+    padding-bottom: 0.5rem;
+}
+
+.education-item, .experience-item, .certification-item {
+    margin-bottom: 2rem;
+    background-color: rgba(27, 23, 52, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #F5C54E;
+}
+
+.education-item h3, .experience-item h3, .certification-item h3, .skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #FFDBA6;
+}
+
+.details {
+    margin-top: 1rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-category {
+    flex: 1 1 300px;
+    background-color: rgba(27, 23, 52, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #F07560;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+ul li::before {
+    content: "•";
+    color: #F5C54E;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .skills {
+        flex-direction: column;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add these styles to your CSS file */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    position: relative;
+    z-index: 11;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    color: #F5C54E;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    border-left: 4px solid #F5C54E;
+    backdrop-filter: blur(5px);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #FFAB93;
+    border-bottom: 2px solid #F07560;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Make about content visible by default */
+.about-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 10;
+    padding: 80px 0;
+    overflow-y: auto;
+    opacity: 1; /* Changed from 0 to 1 */
+    visibility: visible; /* Changed from hidden to visible */
+}

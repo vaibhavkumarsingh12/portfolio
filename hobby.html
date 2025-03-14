@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio - Hobbies</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/hobby.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
+.card,
+.content,
+body {
+	overflow: hidden;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: black;
+}
+.card,
+.container {
+	display: flex;
+	align-items: center;
+}
+.card {
+	width: 1280px;
+	height: 720px;
+	margin: 0;
+	justify-content: center;
+}
+.container-full,
+.content {
+	width: 1000px;
+	height: 562px;
+}
+.backgroundImage {
+	position: absolute;
+	width: 1000px;
+}
+.boyImage {
+	position: absolute;
+	width: 1000px;
+	z-index: 2;
+	animation: 200s linear infinite blur;
+}
+.content {
+	border-radius: 40px;
+	animation: 200s linear infinite brightness;
+}
+.container {
+	justify-content: center;
+}
+.container-full,
+.face {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+.container-full {
+	margin: 0;
+	justify-content: center;
+	transform: scale(1);
+	animation: 200s linear infinite zoom-in;
+}
+.cube,
+.face {
+	width: 870px;
+	height: 190px;
+}
+.cube {
+	position: relative;
+	transform-style: preserve-3d;
+	perspective: 480px;
+	transform-style: preserve-3d;
+	perspective-origin: 51% 70%;
+}
+.face,
+.hue {
+	position: absolute;
+}
+.face {
+	background: 0 0;
+	border: 0 solid #000;
+	opacity: 0.5;
+}
+.bottom,
+.top {
+	width: 870px;
+	height: 870px;
+}
+p {
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 400;
+	font-size: calc(6em + (190px / 10) * 0.7);
+	padding-top: 20px;
+	color: #fff;
+}
+span {
+	color: red;
+}
+.front {
+	transform: translateZ(435px);
+	display: none;
+}
+.back {
+	transform: translateZ(-435px) rotateY(180deg) scaleX(-1);
+}
+.left {
+	transform: translateX(-435px) rotateY(-90deg) scaleX(-1);
+}
+.right {
+	transform: translateX(435px) rotateY(90deg) scaleX(-1);
+}
+.top {
+	transform: translateY(-435px) rotateX(90deg) scaleY(-1);
+}
+.bottom {
+	transform: translateY(-245px) rotateX(-90deg) scaleY(-1);
+}
+.left p {
+	margin-left: 480px;
+	animation: 200s linear infinite left;
+}
+.back p {
+	margin-left: -390px;
+	animation: 200s linear infinite back;
+}
+.right p {
+	margin-left: -1260px;
+	animation: 200s linear infinite right;
+}
+@keyframes left {
+	100% {
+		margin-left: -54000px;
+	}
+}
+@keyframes back {
+	100% {
+		margin-left: -54870px;
+	}
+}
+@keyframes right {
+	100% {
+		margin-left: -55740px;
+	}
+}
+.hue {
+	top: 0;
+	left: 0;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: overlay;
+	background: #1e5799;
+	background: radial-gradient(ellipse at center, #1e5799 0, #7db9e8 100%);
+	opacity: 1;
+}
+.hue.animated {
+	-webkit-animation: 8s infinite filter-animation;
+	animation: 8s infinite filter-animation;
+}
+.container-reflect {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 380px;
+	filter: blur(10px);
+}
+.container-reflect .cube {
+	perspective-origin: 51% -30%;
+}
+.container-reflect .back {
+	transform: translateZ(-435px) rotateY(180deg) scaleX(-1) scaleY(-1);
+}
+.container-reflect .left {
+	transform: translateX(-435px) rotateY(-90deg) scaleX(-1) scaleY(-1);
+}
+.container-reflect .right {
+	transform: translateX(435px) rotateY(90deg) scaleX(-1) scaleY(-1);
+}
+
+.container-reflect p {
+	transform: scaleY(70%);
+}
+
+@keyframes filter-animation {
+	0%,
+	100% {
+		filter: hue-rotate(0deg);
+	}
+	50% {
+		filter: hue-rotate(100deg);
+	}
+}
+@keyframes zoom-in {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(2.5);
+	}
+}
+@keyframes blur {
+	0% {
+		filter: blur(0px);
+	}
+	100% {
+		filter: blur(3px);
+	}
+}
+@keyframes brightness {
+	0% {
+		filter: brightness(1) contrast(1);
+	}
+	100% {
+		filter: brightness(0.8) contrast(1.3);
+	}
+}
+@keyframes left {
+    100% {
+        margin-left: -54000px;
+    }
+}
+/* Remove fixed width and adjust positioning */
+.content {
+  border-radius: 40px;
+  animation: 200s linear infinite brightness;
+  width: 100%; /* Replace fixed width with percentage */
+  height: auto; /* Use auto height for better scaling */
+}
+
+/* Adjust container positioning */
+.container {
+  justify-content: center;
+  margin-top: 0; /* Remove any top margins */
+}
+
+/* Modify body alignment */
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: block; /* Change to block display */
+  align-items: flex-start; /* Move content to top */
+  justify-content: center;
+  background: black;
+}
+
+
+
+
+
+
+
+
+
+
+/* Fix the 3D cube at the top */
+.cube-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden; /* Keep the cube overflow hidden */
+}
+
+
+/* Adjust the main container to allow flow layout */
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Keep content dimensions but remove overflow restriction */
+.content {
+    border-radius: 40px;
+    width: 1000px;
+    height: 562px;
+    animation: 200s linear infinite brightness;
+    margin: 0 auto;
+}
+
+/* Create a separate scrollable section for philosophy content */
+.philosophy-content {
+    margin-top: 620px; /* Space below the 3D cube */
+    padding: 20px;
+    width: 100%;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+}
+/* Enable scrolling */
+body {
+  overflow-y: auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Position the cube container */
+.container {
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the philosophy content section */
+.page-content {
+  width: 80%;
+  max-width: 1000px;
+  color: white;
+  padding: 20px;
+  margin: 0 auto 50px auto;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Style for the book cards */
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.book-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative philosophical symbols */
+.phi-symbol {
+  font-size: 80px;
+  position: absolute;
+  opacity: 0.2;
+  color: #7db9e8;
+}
+
+.phi-1 {
+  top: 700px;
+  left: 10%;
+}
+
+.phi-2 {
+  top: 900px;
+  right: 10%;
+}
+
+/* Typography */
+h1, h2 {
+  margin-top: 30px;
+}
+
+.intro-text {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+
+/* Fix body scrolling */
+body {
+  overflow-y: auto !important;
+  display: block;
+}
+
+/* Philosophy content styling */
+.page-content {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+
+}
+
+/* Override the large font size from the cube text */
+.page-content p {
+  font-size: 1.2rem !important;
+  line-height: 1.6;
+  white-space: normal !important; /* Override nowrap */
+  overflow: visible !important; /* Allow text to be seen */
+}
+
+.page-content h1 {
+  font-size: 2.5rem !important;
+  margin-bottom: 20px;
+}
+
+.page-content h2 {
+  font-size: 2rem ;
+  margin: 30px 0 15px 0;
+}
+
+/* Book card styling */
+.book-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.book-title {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.book-author {
+  font-size: 1.1rem;
+  color: #7db9e8;
+  margin-bottom: 10px;
+}
+
+.book-description, .book-quote {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.greek-title {
+  font-size: 1.8rem;
+  margin: 30px 0 15px 0;
+}
+
+/* Add space between cube and content */
+.page-content {
+  margin-top: 100px; /* Adjust based on your cube size */
+}
+
+
+
+/* Improved readability for philosophy content */
+.page-content {
+  font-family: 'Open Sans', Arial, sans-serif !important; /* Change from Bebas Neue */
+  color: #f5f5f5 !important;
+}
+
+.page-content h1, .page-content h2, .greek-title {
+  font-family: 'Bebas Neue', sans-serif; /* Keep Bebas for headings only */
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.page-content p, .book-description, .book-quote, .greek-content p {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  text-transform: none !important; /* Ensure not all caps */
+  letter-spacing: 0.3px !important;
+}
+
+.book-title {
+  font-weight: 600 !important;
+}
+
+.book-author {
+  font-style: italic;
+}
+
+</style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="mainSidebar">
+        <div class="sidebar-header">
+            <h2>vaibhav kumar singh</h2>
+            <button class="toggle-btn" id="sidebarToggle">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link" data-page="about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="hobby.html" class="nav-link" data-page="hobby"><i class="fas fa-heart"></i> Hobbies</a></li>
+            <li><a href="projects.html" class="nav-link" data-page="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="social-icons">
+                <!-- Add your social media icons here -->
+            </div>
+        </div>
+    </nav>
+    <div class=container>
+        <div class=content style=display:block;width:1000px;height:562px>
+            <div class=container-full>
+                <div class="animated hue"></div><img class=backgroundImage src="https://drive.google.com/thumbnail?id=1_ZMV_LcmUXLsRokuz6WXGyN9zVCGfAHp&sz=w1920"> 
+                <div class=container>
+                    <div class=cube>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                        <div class="face left text"></div>
+                        <div class="face right text"></div>
+                        <div class="face front"></div>
+                        <div class="face back text"></div>
+                    </div>
+                </div>
+                <div class=container-reflect>
+                    <div class=cube>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                        <div class="face left text"></div>
+                        <div class="face right text"></div>
+                        <div class="face front"></div>
+                        <div class="face back text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+</div>
+<div class="page-content">
+    <!-- Decorative philosophical symbols -->
+    <div class="phi-symbol phi-1">φ</div>
+    <div class="phi-symbol phi-2">φ</div>
+    
+    <h1>Philosophy: My Ultimate Passion</h1>
+    <div class="intro-text">
+        <p>If there's one thing that captivates me more than anything else, it's philosophy. The search for deeper understanding, the exploration of human nature, and the questioning of existence—these ideas fascinate me endlessly. Philosophy isn't just about abstract thinking; it's a tool for navigating power, ethics, psychology, and life itself.</p>
+    </div>
+    
+    <h2>Books That Have Shaped My Thinking</h2>
+    <div class="intro-text">
+        <p>Each book I read offers a new perspective, challenging my worldview and refining my thought process. Here are some of the most influential ones:</p>
+    </div>
+    
+    <div class="book-container">
+
+        <!-- Additional book cards would follow the same pattern -->
+        <div class="book-card">
+            <div class="book-title">The 48 Laws of Power</div>
+            <div class="book-author">Robert Greene</div>
+            <div class="book-description">A guide to power dynamics, strategy, and manipulation, using historical examples.</div>
+            <div class="book-quote">🔹 "Never appear too perfect."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Being and Nothingness</div>
+            <div class="book-author">Jean-Paul Sartre</div>
+            <div class="book-description">Sartre’s existentialist masterpiece on consciousness, freedom, and the meaning of being.</div>
+            <div class="book-quote">🔹 "Man is condemned to be free."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Crime and Punishment</div>
+            <div class="book-author">Fyodor Dostoevsky</div>
+            <div class="book-description">A psychological exploration of guilt, morality, and redemption.</div>
+            <div class="book-quote">🔹 "Pain and suffering are always inevitable for a large intelligence and a deep heart."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Cows, Pigs, Wars, and Witches</div>
+            <div class="book-author">Marvin Harris</div>
+            <div class="book-description">An anthropological study of how cultural taboos shape societies.</div>
+            <div class="book-quote">🔹 "Culture is not random; it is deeply connected to survival."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Mini Philosophy: A Small Book of Big Ideas</div>
+            <div class="book-author">Jonny Thomson</div>
+            <div class="book-description">Simplifies major philosophical concepts for easy understanding.</div>
+            <div class="book-quote">🔹 "The unexamined life is not worth living." – Socrates</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Principles for Dealing with the Changing World Order</div>
+            <div class="book-author">Ray Dalio</div>
+            <div class="book-description">Insights on economic cycles and global power shifts.</div>
+            <div class="book-quote">🔹 "History has proven that the biggest risks often come from things we least expect."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Principles for Success</div>
+            <div class="book-author">Ray Dalio</div>
+            <div class="book-description">A condensed version of Dalio’s approach to achieving goals.</div>
+            <div class="book-quote">🔹 "Pain + Reflection = Progress."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The 33 Strategies of War</div>
+            <div class="book-author">Robert Greene</div>
+            <div class="book-description">A tactical guide to conflicts—whether in war, business, or life.</div>
+            <div class="book-quote">🔹 "Appear weak when you are strong, and strong when you are weak." – Sun Tzu</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Future of an Illusion</div>
+            <div class="book-author">Sigmund Freud</div>
+            <div class="book-description">A critique of religion, arguing it is a psychological construct to deal with uncertainty.</div>
+            <div class="book-quote">🔹 "Religious doctrines are illusions, fulfillments of the oldest, strongest, and most urgent wishes of mankind."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">Sometimes You Can Accomplish Most by Doing Nothing</div>
+            <div class="book-author">S.J. Scott</div>
+            <div class="book-description">Explores the power of patience and inaction.</div>
+            <div class="book-quote">🔹 "The art of doing nothing is doing it at the right time."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Art of Living a Meaningless Existence</div>
+            <div class="book-author">Philosophy of Nihilism</div>
+            <div class="book-description">A deep dive into nihilism and how to find meaning despite it.</div>
+            <div class="book-quote">🔹 "Meaning is not found, it is created."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Art of Love</div>
+            <div class="book-author">Ovid</div>
+            <div class="book-description">A classic Roman text on love, romance, and seduction.</div>
+            <div class="book-quote">🔹 "If you want to be loved, be lovable."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Game of Life and How to Play It</div>
+            <div class="book-author">Florence Scovel Shinn</div>
+            <div class="book-description">A spiritual self-help book on faith and belief.</div>
+            <div class="book-quote">🔹 "Your word is your wand. The words you speak create your own destiny."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Prince & The Art of War</div>
+            <div class="book-author">Niccolò Machiavelli</div>
+            <div class="book-description">A pragmatic approach to politics, power, and military strategy.</div>
+            <div class="book-quote">🔹 "It is better to be feared than loved, if you cannot be both."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Art of Seduction</div>
+            <div class="book-author">Robert Greene</div>
+            <div class="book-description">An exploration of the psychology of attraction and influence.</div>
+            <div class="book-quote">🔹 "Powerful seducers are those who can make others feel strong and valued."</div>
+        </div>
+        
+        <div class="book-card">
+            <div class="book-title">The Laws of Human Nature</div>
+            <div class="book-author">Robert Greene</div>
+            <div class="book-description">A study of human behavior and social dynamics.</div>
+            <div class="book-quote">🔹 "The most dangerous people are those who appear the most harmless."</div>
+        </div>
+        
+        <!-- I've included just one as an example -->
+    </div>
+    
+    <!-- Greek mythology section -->
+    <div class="greek-section">
+        <div class="greek-title">Fascination with Debires: The Greek God</div>
+        <div class="greek-content">
+            <p>Among the many mythologies, Greek mythology stands out to me, and Debires is particularly intriguing. His essence represents mystery, unseen influence, and the balance between fate and free will. Unlike the Olympian gods, Debires operates in the shadows, subtly shaping destinies rather than directly intervening.</p>
+            <p>His existence raises a compelling question: Do we truly have control over our lives, or are we merely actors in a script written by forces beyond our comprehension?</p>
+        </div>
+    </div>
+</div>
+    <script>
+        // Poem text
+const kiplingPoem = `<p>Never appear too <span>perfect</span>.
+
+We are <span>condemned</span> to be free.
+
+Pain and <span>suffering</span> are always inevitable for a large <span>intelligence</span> and a deep heart. The really great men must, I think, have <span>great</span> sadness on earth.
+
+Human <span>cultures</span> are not random assemblages of customs and beliefs but <span>coherent</span> wholes, rationally organized and intelligible when viewed in their own terms.
+
+<span>Philosophy</span> isn't just for academics; it's for anyone who wants to <span>think</span> deeply about life's big questions.
+
+<span>History</span> teaches us that there are always cycles.
+
+Pain + <span>Reflection</span> = Progress.
+
+Choose your <span>battles</span> carefully. Sometimes victory is just an <span>illusion</span>.
+
+Religion is an <span>illusion</span> and it derives its strength from the fact that it falls in with our <span>primal</span> desires.
+
+True <span>wisdom</span> can be found in stillness and observation, not just in <span>constant</span> action.
+
+<span>Meaning</span> is not something to be found, but something to be created.
+
+Take <span>rest</span>; a field that has rested gives a <span>beautiful</span> crop.
+
+Infinite Spirit, open the <span>way</span> for my great abundance. I am an <span>irresistible</span> magnet for all things that belong to me by divine right.
+
+It is better to be <span>feared</span> than loved, if you cannot be both.
+
+The <span>supreme</span> art of war is to subdue the enemy without <span>fighting</span>.
+
+<span>Seduction</span> is a game of psychology, not beauty, and it is within the <span>grasp</span> of anyone to master.
+
+The <span>deepest</span> need of human nature is the need to feel <span>important</span>.</p>
+`;
+
+// Function to insert poem into divs
+function insertPoemIntoDivs() {
+	// Get all .text divs
+	const textDivs = document.querySelectorAll(".text");
+
+	// Insert poem into all .text divs
+	textDivs.forEach((div) => {
+		div.innerHTML = kiplingPoem;
+	});
+}
+
+// Call the function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", insertPoemIntoDivs);
+
+const contentDiv = document.querySelector(".content");
+function adjustContentSize() {
+	const viewportWidth = window.innerWidth;
+	const baseWidth = 1000;
+	const scaleFactor =
+		viewportWidth < baseWidth ? (viewportWidth / baseWidth) * 0.8 : 1;
+	contentDiv.style.transform = `scale(${scaleFactor})`;
+}
+window.addEventListener("load", adjustContentSize);
+window.addEventListener("resize", adjustContentSize);
+
+// Update the scaling function to handle width instead of height
+function adjustContentSize() {
+  const viewportWidth = window.innerWidth;
+  const baseWidth = 1280; // Original card width
+  const scaleFactor = Math.min(1, viewportWidth / baseWidth);
+  
+  contentDiv.style.transform = `scale(${scaleFactor})`;
+  contentDiv.style.maxWidth = `${scaleFactor * baseWidth}px`;
+}
+function adjustContentSize() {
+    const viewportWidth = window.innerWidth;
+    const baseWidth = 1000; // Base width of content
+    
+    // Calculate scale factor based on viewport width
+    let scaleFactor = viewportWidth < baseWidth ? (viewportWidth / baseWidth) * 0.8 : 1;
+    
+    // Apply the scaling
+    const contentDiv = document.querySelector(".content");
+    contentDiv.style.transform = `scale(${scaleFactor})`;
+    contentDiv.style.transformOrigin = "top center";
+    
+    // Adjust cube container height if needed
+    const cubeContainer = document.querySelector(".cube-container");
+    cubeContainer.style.height = `${562 * scaleFactor}px`;
+}
+
+// Run on load and resize
+window.addEventListener("load", adjustContentSize);
+window.addEventListener("resize", adjustContentSize);
+
+    </script>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/hobby.js"></script>
+</body>
+</html>
