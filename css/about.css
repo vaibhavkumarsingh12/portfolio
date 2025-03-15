@@ -180,7 +180,15 @@ ul li::before {
 
 
 
+.sidebar {
+    /* Keep your existing styles */
+    z-index: 1000; /* Ensure sidebar stays above animation */
+}
 
+.sidebar-toggle-btn {
+    /* Keep your existing styles */
+    z-index: 1100; /* Ensure toggle stays above everything */
+}
 
 
 
