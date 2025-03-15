@@ -438,7 +438,7 @@ body {
 
 /* Add space between cube and content */
 .page-content {
-  margin-top: 100px; /* Adjust based on your cube size */
+  margin-top: 20px; /* Adjust based on your cube size */
 }
 
 
@@ -470,6 +470,91 @@ body {
 
 .book-author {
   font-style: italic;
+}
+
+
+
+
+
+/* Core container adjustments */
+.container, .content {
+  width: 100% !important;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.container-full {
+  width: 100% !important;
+  max-width: 1000px;
+  transform-origin: top center;
+}
+
+/* Make cube responsive */
+.cube, .face {
+  width: 100%;
+  max-width: 870px;
+  height: auto;
+  min-height: 190px;
+}
+
+/* Fix positioning of background elements */
+.backgroundImage, .boyImage {
+  position: absolute;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+/* Ensure proper mobile display */
+@media (max-width: 768px) {
+  .content {
+    height: auto !important;
+    min-height: 300px;
+  }
+  
+  /* Adjust text size for mobile */
+  p {
+    font-size: calc(2em + (190px / 20) * 0.7) !important;
+    white-space: normal !important;
+    padding-top: 10px;
+  }
+  
+  /* Better cube positioning for mobile */
+  .container {
+    transform-origin: top center;
+  }
+  
+  /* Adjust spacing for philosophy content */
+  .page-content {
+    margin-top: 350px !important;
+  }
+}
+
+
+/* Better mobile text display */
+@media (max-width: 480px) {
+  .face p {
+    font-size: calc(1.5em + (190px / 30) * 0.7) !important;
+  }
+  
+  /* Improve mobile scrolling */
+  body {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Adjust content spacing */
+  .page-content {
+    margin-top: 300px !important;
+    padding: 15px;
+  }
+  
+  /* Better book card layout */
+  .book-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 </style>
@@ -735,29 +820,35 @@ window.addEventListener("resize", adjustContentSize);
 // Update the scaling function to handle width instead of height
 function adjustContentSize() {
   const viewportWidth = window.innerWidth;
-  const baseWidth = 1280; // Original card width
-  const scaleFactor = Math.min(1, viewportWidth / baseWidth);
+  const baseWidth = 1000;
   
-  contentDiv.style.transform = `scale(${scaleFactor})`;
-  contentDiv.style.maxWidth = `${scaleFactor * baseWidth}px`;
-}
-function adjustContentSize() {
-    const viewportWidth = window.innerWidth;
-    const baseWidth = 1000; // Base width of content
-    
-    // Calculate scale factor based on viewport width
-    let scaleFactor = viewportWidth < baseWidth ? (viewportWidth / baseWidth) * 0.8 : 1;
-    
-    // Apply the scaling
-    const contentDiv = document.querySelector(".content");
+  // Better scaling for mobile
+  let scaleFactor = Math.min(1, (viewportWidth / baseWidth) * 0.95);
+  
+  // Get elements
+  const contentDiv = document.querySelector(".content");
+  const containerFull = document.querySelector(".container-full");
+  
+  // Apply scaling with improved transform origin
+  if (contentDiv) {
     contentDiv.style.transform = `scale(${scaleFactor})`;
     contentDiv.style.transformOrigin = "top center";
-    
-    // Adjust cube container height if needed
-    const cubeContainer = document.querySelector(".cube-container");
-    cubeContainer.style.height = `${562 * scaleFactor}px`;
+    contentDiv.style.height = viewportWidth <= 768 ? "auto" : "562px";
+  }
+  
+  // Scale container appropriately
+  if (containerFull) {
+    containerFull.style.transform = `scale(${scaleFactor})`;
+    containerFull.style.transformOrigin = "top center";
+  }
+  
+  // Adjust positioning of page content based on actual cube height
+  const cubeHeight = contentDiv ? contentDiv.getBoundingClientRect().height : 562;
+  const pageContent = document.querySelector(".page-content");
+  if (pageContent) {
+    pageContent.style.marginTop = `${cubeHeight * 0.9}px`;
+  }
 }
-
 // Run on load and resize
 window.addEventListener("load", adjustContentSize);
 window.addEventListener("resize", adjustContentSize);
