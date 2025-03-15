@@ -495,3 +495,24 @@ body {
     /* Keep your existing styles */
     z-index: 1100; /* Ensure toggle stays above everything */
 }
+
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    background: #6c47c9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: none; /* Hidden on desktop by default */
+  }
+  
+  /* Show the button on smaller screens */
+  @media (max-width: 768px) {
+    .sidebar-toggle-btn {
+      display: block;
+    }
+  }
