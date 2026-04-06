@@ -579,28 +579,76 @@
     margin-top: 2rem;
 }
 
+/* Featured Projects */
+.featured-projects {
+    margin: 2rem 0;
+}
+
+.featured-projects .section-title {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.featured-projects .section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    height: 3px;
+    background: linear-gradient(90deg, #8a2be2, #9932cc);
+}
+
+.project-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.pin-icon {
+    margin-bottom: 0.5rem;
+    color: #ff4081;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.project-card p {
+    margin: 0;
+    color: #aaa;
+}
+
+.view-link {
+    color: #4fc3f7;
+    text-decoration: none;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+/* Home-specific button overrides */
 .btn {
-    display: inline-block;
     padding: 10px 20px;
     background: linear-gradient(135deg, #8a2be2, #9932cc);
-    color: white;
     border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     background: linear-gradient(135deg, #9932cc, #8a2be2);
-}
-
-.btn i {
-    margin-right: 8px;
 }
 
 .btn-secondary {
