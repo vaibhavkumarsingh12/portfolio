@@ -1,473 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Kumar Singh - Portfolio</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .animation-container canvas {
-            -webkit-user-select: none;
-            user-select: none;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        .animation-container .asset-img { display: none; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Vaibhav Kumar Singh, Business Analyst Intern in healthcare. Explore case studies in customer research, operations analytics, and data validation.">
+<meta name="theme-color" content="#111a17">
+<meta property="og:title" content="Vaibhav Kumar Singh | Business Analyst">
+<meta property="og:description" content="Business analysis through customer research, operations analytics, and data validation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vaibhavkumarsingh12.github.io/portfolio/">
+<title>Vaibhav Kumar Singh | Business Analyst Portfolio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23d4fb78'/%3E%3Cpath d='M9 11l6 18 6-18m2 0v18m0-8 8-10m-8 10 8 8' stroke='%23111a17' stroke-width='2.7' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/portfolio.css">
+<script src="js/portfolio.js" defer></script>
 </head>
-<body>
-    <!-- Animation Container - Place this at the top of your body -->
-    <div class="animation-container interactive">
-        <canvas></canvas>
-        <!-- Glowing image base64 -->
-        <img class="asset-img" id="light-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACnVBMVEUAAAD40ED40D740Dv40En40Dr40FH40Df40D/40D340Dn40Dz40Dj40AD40Ff40Db40DT40EH40EL40ED40ED40Dv40D/4zz/4zz74zz/4zz/40D74zz/4zz/4zz/40UH40kD40UL40kH4zz/4zz340D34zz740kH41UT410f410j410j410f40D/40D/4zz/40ED40EH400T410f42Er4103410/411D41UT40kH40D/4z0D4zz/41UX410j42E7411L42Ff42Vv42Vz42En41kb40UH4zz/40Dz40ED41UT42Ej4107411b42l743WT432r4323432r410/42En4zz340Dn400H410f42mD432v44nf45IP45Yn45IT44nj432r411b400L40D/4zz/41UT42Er411P432v44oD46Zv47q/48Lj46Zr432n40UH410f42Ff44nf48r/499T4997499T48r744nf43WP40D741EH42Vv4+O34+PP4+O347q745IL432j40UD432345Yj48LX49934+PP4+Pj4993477T45Ib432z411D400D40D/40UH432n45IP47a7432j42Vv410/400H40Dr4zz340UD410b410346Zj48r343WP42Ff410f40D/41kT42Er42l744nv46Zf42l3411L410r41kX40ED410f42E7411b421/45IL45Ib432n421740UH40D340Dz4zz741EP410j410743WT432f432v43mj43GT42Ej41kT4zz740ED41EX411P42Ff42Fv411f410j41kX400P41034107411D42E340D740UH410j41kb41ET400H40D/40ED4z0D4zz74zz340D////+WdN8lAAAA3nRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAgMCBAcJDAkDCA0SFRsbGxMDBQscJSwwMS0SDAUFFyExQExUVyIYDQULJzlOZHeDhDonFwoDASE5VXGNpbO4tFM5BwEcMJa3zdjb2Mu2cBwDESM+Y7bU4ebo4bUUK3bL6vDy7+rKogIZgPb49ebXsBu02+jx9/jw6Nu0VRsBGbDX5q9/UhkCCRUqS+HqoHMqESI9i9Thi2E9IhEvTG+V1tq0kxsDAQchN1Ggr7SvoDghChUjYXJ/cjgnIUlSVEkFGi8qIhsFFAcICAaJi/ApAAAAAWJLR0Te6W7imwAAAAd0SU1FB+YMHBEUINvSacMAAAIKSURBVCjPY2AgBBgZmZiFRYQZgQBVnEVUTFxCUlJSSlxMlAVJjplVWkZWTl5BUUleWVZGhZkZYZKqmpy6hqaWtpaOhrqunj7MREZGA1lDI2MTUzNzM1MTYwtLK2uIFCOjiI2hrZ29g6OTs5Ojg72Lq5u7Bxs7SMZTXNfL28fXzz8gMMjfzzc4xEI3NIwVrEUyPMLeNzIqOiY2Lj4hMtE+Ikk2mYkRKCOekpqW7peRmZWdk52bmeeXnqYhJ84BkpHKLzAt9C/KKi4pLSvPragsNNXMl/JkZGCqUqvWMqsJiMkuqa2rL2tobKox06qWTOZg4EiWbNY2d25pbWvv6Ozo6u7pde7T6pf04GTgmGAzEahn0uSGsvqO+rIpjVOnTdeaoTaTmYGLfdbsOXMLKyvmzS/rKps/r2jBwrmL5KWAfmViEl+8ZGn6srzlK6Z0T1mxPG/lqtVr1oLdxp0sqbRu/YaNeUWbNm8q2rJ1w/p12yS38wDDh3PHTrldu/dsWLZ33/4DB5dt2HPosO7OMFBwM/KKHjl6bPf64yemOZ88dXz96TPyR6T5+EFByi6ganP07LrV585fmH5x6bqzs21UmZhg0XDJXe7ykjnrtK5cvXZdzv0GMycs6jiZpXdKLs532+Z2M0VSXAQ5KTAKeorcuu1uc+TO3e07hNDSCCMjNyczKz8nN8FkxgAAgH2hXtQzzA4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTItMjhUMTc6MjA6MzIrMDA6MDA1MNVoAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTEyLTI4VDE3OjIwOjMyKzAwOjAwRG1t1AAAAABJRU5ErkJggg==">
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="header">
+  <div class="shell masthead">
+    <a class="brand" href="#top" aria-label="Vaibhav Kumar Singh, home"><span class="monogram" aria-hidden="true">VK</span><span>Vaibhav Kumar Singh</span></a>
+    <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a class="nav-contact" href="#contact">Contact</a></nav>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> CURRENTLY · HEALTHCARE BUSINESS ANALYST INTERN</p>
+        <h1 id="hero-title">From business<br>questions to<br><em>clear decisions.</em></h1>
+        <p class="intro">I’m Vaibhav Kumar Singh. I use customer research, process analysis, and business intelligence to understand what’s happening and recommend what to do next.</p>
+        <div class="actions"><a class="button primary" href="#work">Explore my case studies</a><a class="button ghost" href="https://www.linkedin.com/in/vaibhav-singh-592099255">LinkedIn</a></div>
+      </div>
+      <figure class="signal">
+        <figcaption class="signal-cap"><span>FEATURED ANALYSIS</span><span>PATNA / RETAIL</span></figcaption>
+        <div class="signal-inner">
+          <p class="signal-question">Would customers pay more for faster delivery?</p>
+          <div class="signal-number">45.2<span>%</span></div>
+          <p class="signal-answer">said they wouldn’t.</p>
+          <div class="signal-bars" role="img" aria-label="Responses: No 45.2 percent, Maybe 38.7 percent, Yes 16.1 percent">
+            <span class="seg no"></span><span class="seg maybe"></span><span class="seg yes"></span>
+          </div>
+          <div class="legend" aria-hidden="true"><span><i></i>No</span><span><i></i>Maybe</span><span><i></i>Yes</span></div>
+        </div>
+        <div class="signal-footer"><span>ACADEMIC CUSTOMER RESEARCH</span><a href="#case-commerce">Read the case</a></div>
+      </figure>
     </div>
+  </section>
 
-    <!-- Single sidebar toggle button (outside sidebar) -->
-    <button id="sidebarToggle" class="sidebar-toggle-btn">
-        <i class="fas fa-bars"></i>
-    </button>
-    
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" id="mainSidebar">
-        <div class="sidebar-header">
-            <h2>Vaibhav Kumar Singh</h2>
-        </div>
-        <ul class="sidebar-menu"> 
-            <li><a href="index.html" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="about.html" class="nav-link" data-page="about"><i class="fas fa-user"></i> About Me</a></li>
-            <li><a href="hobby.html" class="nav-link" data-page="hobby"><i class="fas fa-heart"></i> Hobbies</a></li>
-            <li><a href="projects.html" class="nav-link" data-page="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-        </ul>
-        <div class="sidebar-footer">
-            <div class="social-icons">
-                <!-- Add your social media icons here -->
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Main Content Area -->
-    <div class="main-content">
-        <!-- Your content sections here -->
-        <div class="hero-section">
-            <div class="hero-content">
-                <p class="hero-tagline">Data-Driven Business Professional</p>
-                <h1 class="hero-title">Welcome! I'm Vaibhav Kumar Singh</h1>
-                <p class="hero-subtitle">BBA student specializing in Data Science with a passion for business analytics and technology</p>
-                <p>I combine business acumen with technical skills to transform data into actionable insights. Currently pursuing my Bachelor of Business Administration with a minor in Data Science at Birla Institute of Technology, Mesra, I'm driven by the intersection of business strategy and data-driven decision-making.</p>
-                <div class="hero-cta">
-                    <a href="about.html" class="btn"><i class="fas fa-user"></i> </a>
-                    <a href="projects.html" class="btn btn-secondary"><i class="fas fa-project-diagram"></i> </a>
-                </div>
-            </div>
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-        </div>
-
-        <div class="section-title">📌 "Turning Data into Decisions"</div>
-
-        <section class="skills-section">
-            <div class="skills-container">
-                <h2 class="section-title">Key Skills</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="skill-name">Data Analysis & Visualization</h3>
-                        <p>Excel, Power BI, Tableau, Python</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-calculator"></i></div>
-                        <h3 class="skill-name">Financial Modeling & Valuation</h3>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-pencil-alt"></i></div>
-                        <h3 class="skill-name">Strategic Content Development</h3>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h3 class="skill-name">Digital Marketing & Growth Strategies</h3>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                        <h3 class="skill-name">Business Analytics & Decision-Making</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-preview">
-            <div class="about-container">
-                <div class="about-content">
-                    <h2 class="section-title">Work & Research Experience</h2>
-                    <ul>
-                        <li>🔹 <strong>Rodic Consultants Pvt. Ltd.</strong> – Business Analysis (Data Analytics & Environmental Analysis)</li>
-                        <li>🔹 <strong>CareerBoost</strong> – Founder & Developer of a career development platform for underserved Indian students</li>
-                        <li>🔹 <strong>Research on Quick Commerce in India</strong> – Studying consumer perspectives in the growing sector</li>
-                    </ul>
-                    
-                    <h2 class="section-title">Certifications & Courses</h2>
-                    <ul>
-                        <li>📖 <strong>Relevant Courses:</strong> Data Analysis, Strategic Management, Quantitative Techniques, IT Skills</li>
-                        <li>🎓 <strong>Ongoing Learning:</strong> Machine Learning, Business Intelligence, Predictive Analytics</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="featured-projects">
-            <h2 class="section-title">Projects & Publications</h2>
-            <div class="project-showcase">
-                <div class="project-card">
-                    <div class="pin-icon">📌</div>
-                    <h3>Internship Report: Business Analysis</h3>
-                    <p>External & Internal Environmental Analysis</p>
-                </div>
-                <div class="project-card">
-                    <div class="pin-icon">📌</div>
-                    <h3>Mutual Fund Research</h3>
-                    <p>Exploring fund types, strategies, risk management, and fund comparisons</p>
-                </div>
-                <div class="project-card">
-                    <div class="pin-icon">📌</div>
-                    <h3>Published Research Paper on LinkedIn</h3>
-                    <p><a href="https://drive.google.com/drive/folders/1vQdK8fQLqTrPKhvjiPdDFuhBed0An9A3?usp=sharing" class="view-link">🔗 View Here</a></p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="skills-section">
-            <div class="skills-container">
-                <h2 class="section-title">Tech Stack & Tools</h2>
-                <div>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">Google Analytics</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-cta">
-            <div class="cta-container">
-                <h2 class="cta-title">Connect With Me</h2>
-                <div class="cta-text">
-                    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/vaibhav-singh-592099255">www.linkedin.com/in/vaibhav-singh-592099255</a></p>
-                    <p>📞 Phone: +91 9026398534</p>
-                    <p>📩 Email: vaibhavkumarsingh235@gmail.com</p>
-                </div>
-                <p class="cta-text">🚀 Always open to exciting opportunities in Data Science, Business Analytics, and Strategic Consulting!</p>
-            </div>
-        </section>
+  <section class="work shell" id="work" aria-labelledby="work-title">
+    <div class="section-top"><div><p class="eyebrow label">SELECTED WORK</p><h2 id="work-title">The decision behind the data.</h2></div><p class="section-note">What was the question, what did the evidence show, and what would I do next?</p></div>
+    <div class="filters" role="group" aria-label="Filter case studies" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All work</button>
+      <button type="button" data-filter="research" aria-pressed="false">Research</button>
+      <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
+      <button type="button" data-filter="quality" aria-pressed="false">Data quality</button>
     </div>
+    <p id="result-status" class="sr-only" aria-live="polite"></p>
+    <div class="cases">
+      <article class="case case-feature" id="case-commerce" data-category="research">
+        <div class="case-art commerce" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M-5 144L82 87l40 16 62-64 51 27 70-54M-5 175l98-61 35 16 60-65 50 24 67-50M-5 112l77-48 44 14 63-65 49 27 78-51" fill="none" stroke="currentColor" stroke-width="1"/><path d="M15 27h100M15 37h66M181 145h100M215 155h66" fill="none" stroke="currentColor"/><g fill="#d4fb78"><circle cx="82" cy="87" r="5"/><circle cx="184" cy="39" r="5"/><circle cx="235" cy="66" r="5"/></g></svg></div>
+        <div class="case-body"><p class="card-label">CUSTOMER RESEARCH · ACADEMIC STUDY</p><h3>Quick commerce in Patna</h3><p>Is faster delivery worth charging for, or should platforms focus on making standard delivery more reliable?</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How are quick-commerce apps changing buying behavior in Patna, and is there demand for a faster-delivery fee?</dd><dt>Evidence</dt><dd>On the pricing question, 45.2% said no, 38.7% said maybe, and 16.1% said yes. These are stated preferences, not observed purchases.</dd><dt>Recommendation</dt><dd>Test clearer fees and more reliable standard delivery first. Run a small pricing test before treating faster delivery as a paid upgrade.</dd></dl></details>
+        </div>
+      </article>
+      <article class="case" data-category="operations">
+        <div class="case-art operations" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 30h264M18 65h264M18 100h264M18 135h264M50 12v146m50-146v146m50-146v146m50-146v146m50-146v146" fill="none" stroke="currentColor"/><path d="M36 135h27V91H36zm50 0h27V61H86zm50 0h27V77h-27zm50 0h27V33h-27zm50 0h27V97h-27z" fill="#3c7b71"/><path d="M186 135h27V33h-27z" fill="#baf380"/></svg></div>
+        <div class="case-body"><p class="card-label">OPERATIONS ANALYTICS · JOB SIMULATION</p><h3>Manufacturing downtime</h3><p>A Tableau view to help operations teams decide where to investigate equipment downtime first.</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Where should an operations team start investigating equipment downtime?</dd><dt>Approach</dt><dd>In Deloitte’s Forage job simulation, I built a Tableau dashboard to compare downtime across factory locations and device categories.</dd><dt>Recommendation</dt><dd>Start with the factory and device category showing the most downtime. Check device counts and maintenance records before attributing a cause.</dd></dl></details>
+        </div>
+      </article>
+      <article class="case" data-category="quality">
+        <div class="case-art quality" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 39h44m-44 46h44m-44 46h44m35-92h51v46h42m-93 0h93m-93 46h51V85m73 0h52" fill="none" stroke="currentColor" stroke-width="2"/><g fill="none" stroke="#d4fb78" stroke-width="2"><rect x="62" y="27" width="35" height="24" rx="3"/><rect x="62" y="73" width="35" height="24" rx="3"/><rect x="62" y="119" width="35" height="24" rx="3"/><rect x="190" y="69" width="35" height="32" rx="3"/><path d="m199 85 5 5 10-12"/></g></svg></div>
+        <div class="case-body"><p class="card-label">DATA VALIDATION · INTERNSHIP</p><h3>Field verification and reporting</h3><p>Making records from multiple districts easier to check, reconcile, and report.</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How do you make sure records from different districts are ready to use in a consolidated report?</dd><dt>Approach</dt><dd>At Rodic Consultants, I verified and analyzed project records across districts in Bihar and took on team coordination responsibilities.</dd><dt>Takeaway</dt><dd>Keep verified records separate from items still needing follow-up. Reporting totals without showing what remains unresolved can give a misleading picture.</dd></dl></details>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <!-- Script section - Keep all JavaScript intact -->
-    <script>
-        // Vector class
-        class Vector {
-            constructor(x, y) {
-                this.x = x || 0;
-                this.y = y || 0;
-            }
-            static add(v1, v2) {
-                return new Vector(v1.x + v2.x, v1.y + v2.y);
-            }
-            static sub(v1, v2) {
-                return new Vector(v1.x - v2.x, v1.y - v2.y);
-            }
-            add(x, y) {
-                if (arguments.length === 1) {
-                    this.x += x.x;
-                    this.y += x.y;
-                } else if (arguments.length === 2) {
-                    this.x += x;
-                    this.y += y;
-                }
-                return this;
-            }
-            sub(x, y) {
-                if (arguments.length === 1) {
-                    this.x -= x.x;
-                    this.y -= x.y;
-                } else if (arguments.length === 2) {
-                    this.x -= x;
-                    this.y -= y;
-                }
-                return this;
-            }
-            mult(v) {
-                if (typeof v === 'number') {
-                    this.x *= v;
-                    this.y *= v;
-                } else {
-                    this.x *= v.x;
-                    this.y *= v.y;
-                }
-                return this;
-            }
-            setXY(x, y) {
-                this.x = x;
-                this.y = y;
-                return this;
-            }
-            dist(v) {
-                const dx = this.x - v.x;
-                const dy = this.y - v.y;
-                return Math.sqrt(dx * dx + dy * dy);
-            }
-        }
-    
-        // Mouse class
-        class Mouse {
-            constructor(canvas) {
-                this.pos = new Vector(-1000, -1000);
-                this.radius = 40;
-    
-                canvas.onmousemove = e => this.pos.setXY(e.clientX, e.clientY);
-                canvas.ontouchmove = e => this.pos.setXY(e.touches[0].clientX, e.touches[0].clientY);
-                canvas.ontouchcancel = () => this.pos.setXY(-1000, -1000);
-                canvas.ontouchend = () => this.pos.setXY(-1000, -1000);
-            }
-        }
-    
-        // Dot class
-        class Dot {
-            constructor(x, y) {
-                this.pos = new Vector(x, y);
-                this.oldPos = new Vector(x, y);
+  <section class="experience" id="experience" aria-labelledby="experience-title">
+    <div class="shell experience-grid">
+      <div><p class="eyebrow label">EXPERIENCE</p><h2 id="experience-title">Business first.<br>Data to back it up.</h2><p class="section-note">My background combines business administration with hands-on research, data verification, and BI reporting.</p></div>
+      <div>
+        <div class="entry"><p class="entry-meta"><span class="status-dot" aria-hidden="true"></span> CURRENT · HEALTHCARE</p><h3>Business Analyst Intern</h3><p>I’m currently interning as a Business Analyst in healthcare.</p></div>
+        <div class="entry"><p class="entry-meta">EARLIER EXPERIENCE</p><h3>Rodic Consultants</h3><p>Field verification, data analysis, and team coordination on a multi-district project in Bihar.</p></div>
+        <div class="entry"><p class="entry-meta">EDUCATION · 2025</p><h3>Birla Institute of Technology, Mesra</h3><p>BBA, minor in Data Science · CGPA 8.94</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="toolkit shell" aria-labelledby="tools-title"><div><p class="eyebrow label">TOOLKIT</p><h2 id="tools-title">How I work</h2></div><ul class="pills"><li>Customer research</li><li>Process analysis</li><li>Data validation</li><li>Excel</li><li>SQL</li><li>Tableau</li><li>Power BI</li><li>Python</li></ul></section>
 
-                this.friction = 0.97;
-                this.gravityY = 0.6;
-                this.mass = 1;
-                this.lightSize = 15;
-
-                this.pinned = false;
-            }
-
-            update(mouse) {
-                if (this.pinned) return;
-
-                const velX = (this.pos.x - this.oldPos.x) * this.friction;
-                const velY = (this.pos.y - this.oldPos.y) * this.friction + this.gravityY;
-
-                const oldX = this.pos.x;
-                const oldY = this.pos.y;
-
-                this.oldPos.setXY(oldX, oldY);
-
-                const dx = mouse.pos.x - this.pos.x;
-                const dy = mouse.pos.y - this.pos.y;
-                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-                const force = Math.max((mouse.radius - dist) / mouse.radius, 0);
-
-                if (force > 0.6) {
-                    this.pos.setXY(mouse.pos.x, mouse.pos.y);
-                } else {
-                    this.pos.x = oldX + velX + (dx / dist) * force;
-                    this.pos.y = oldY + velY + (dy / dist) * force;
-                }
-            }
-
-            drawLight(ctx) {
-                ctx.drawImage(
-                    Dot.lightImg,
-                    this.pos.x - this.lightSize / 2,
-                    this.pos.y - this.lightSize / 2,
-                    this.lightSize,
-                    this.lightSize
-                );
-            }
-
-            draw(ctx) {
-                ctx.fillStyle = '#aaa';
-                ctx.fillRect(this.pos.x - this.mass, this.pos.y - this.mass, this.mass * 2, this.mass * 2);
-            }
-        }
-    
-        // Stick class
-        class Stick {
-            constructor(p1, p2) {
-                this.startPoint = p1;
-                this.endPoint = p2;
-                
-                this.length = this.startPoint.pos.dist(this.endPoint.pos);
-                this.tension = 0.3;
-            }
-    
-            update() {
-                const dx = this.endPoint.pos.x - this.startPoint.pos.x;
-                const dy = this.endPoint.pos.y - this.startPoint.pos.y;
-    
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const diff = (dist - this.length) / dist;
-    
-                const offsetX = diff * dx * this.tension;
-                const offsetY = diff * dy * this.tension;
-    
-                const m = this.startPoint.mass + this.endPoint.mass;
-                const m1 = this.endPoint.mass / m;
-                const m2 = this.startPoint.mass / m;
-    
-                if (!this.startPoint.pinned) {
-                    this.startPoint.pos.x += offsetX * m1;
-                    this.startPoint.pos.y += offsetY * m1;
-                }
-                if (!this.endPoint.pinned) {
-                    this.endPoint.pos.x -= offsetX * m2;
-                    this.endPoint.pos.y -= offsetY * m2;
-                }
-            }
-    
-            draw(ctx) {
-                ctx.beginPath();
-                ctx.strokeStyle = '#999';
-                ctx.moveTo(this.startPoint.pos.x, this.startPoint.pos.y);
-                ctx.lineTo(this.endPoint.pos.x, this.endPoint.pos.y);
-                ctx.stroke();
-                ctx.closePath();
-            }
-        }
-    
-        // Rope class
-        class Rope {
-            constructor(config) {
-                this.x = config.x;
-                this.y = config.y;
-                this.segments = config.segments || 10;
-                this.gap = config.gap || 15;
-                this.color = config.color || 'gray';
-    
-                this.dots = [];
-                this.sticks = [];
-    
-                this.iterations = 10;
-    
-                this.create();
-            }
-    
-            pin(index) {
-                this.dots[index].pinned = true;
-            }
-    
-            create() {
-                for (let i = 0; i < this.segments; i++) {
-                    this.dots.push(new Dot(this.x, this.y + i * this.gap));
-                }
-                for (let i = 0; i < this.segments - 1; i++) {
-                    this.sticks.push(new Stick(this.dots[i], this.dots[i + 1]));
-                }
-            }
-            
-            update(mouse) {
-                this.dots.forEach(dot => {
-                    dot.update(mouse);
-                });
-                for (let i = 0; i < this.iterations; i++) {
-                    this.sticks.forEach(stick => {
-                        stick.update();
-                    });
-                }
-            }
-    
-            draw(ctx) {
-                this.sticks.forEach(stick => {
-                    stick.draw(ctx);
-                });
-                this.dots.forEach(dot => {
-                    dot.draw(ctx);
-                });
-                this.dots[this.dots.length - 1].drawLight(ctx);
-            }
-        }
-    
-        // Helper function
-        function randomNumBetween(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-    
-        // Main App class
-        class App {
-            static width = innerWidth;
-            static height = innerHeight;
-            static dpr = devicePixelRatio > 1 ? 2 : 1;
-            static interval = 1000 / 60;
-    
-            constructor() {
-                this.canvas = document.querySelector('.animation-container canvas');
-                this.ctx = this.canvas.getContext('2d');
-    
-                this.mouse = new Mouse(this.canvas);
-    
-                this.resize();
-                window.addEventListener('resize', this.resize.bind(this));
-    
-                this.createRopes();
-            }
-    
-            createRopes() {
-                this.ropes = [];
-    
-                const TOTAL = App.width * 0.04;
-                for (let i = 0; i < TOTAL + 1; i++) {
-                    const x = randomNumBetween(App.width * 0.3, App.width * 0.7);
-                    const y = 0;
-                    const gap = randomNumBetween(App.height * 0.05, App.height * 0.08);
-                    const segments = 4;
-                    const rope = new Rope({ x, y, gap, segments });
-                    rope.pin(0);
-    
-                    this.ropes.push(rope);
-                }
-            }
-    
-            resize() {
-                App.width = innerWidth;
-                App.height = innerHeight;
-    
-                this.canvas.style.width = '100%';
-                this.canvas.style.height = '100%';
-                this.canvas.width = App.width * App.dpr;
-                this.canvas.height = App.height * App.dpr;
-                this.ctx.scale(App.dpr, App.dpr);
-    
-                this.createRopes();
-            }
-    
-            render() {
-                let now, delta;
-                let then = Date.now();
-    
-                const frame = () => {
-                    requestAnimationFrame(frame);
-                    now = Date.now();
-                    delta = now - then;
-                    if (delta < App.interval) return;
-                    then = now - (delta % App.interval);
-                    this.ctx.clearRect(0, 0, App.width, App.height);
-    
-                    // draw here
-                    this.ropes.forEach(rope => {
-                        rope.update(this.mouse);
-                        rope.draw(this.ctx);
-                    });
-                }
-                requestAnimationFrame(frame);
-            }
-        }
-    
-        // Initialize the app when window loads
-        window.addEventListener('load', () => {
-            Dot.lightImg = document.querySelector('#light-img');
-            const app = new App();
-            app.render();
-        });
-    </script>
-    <script src="js/main.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="js/home.js"></script>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="shell contact-grid"><div><p class="eyebrow">CONTACT</p><h2 id="contact-title">Let’s talk business analysis.</h2><p>I’m interested in roles that bring together research, operations, and reporting.</p></div><a class="button dark" href="https://www.linkedin.com/in/vaibhav-singh-592099255">Connect on LinkedIn</a></div>
+  </section>
+</main>
+<footer class="footer"><div class="shell foot-content"><span>Vaibhav Kumar Singh</span><div><a href="https://github.com/vaibhavkumarsingh12">GitHub</a><a href="hobby.html">Outside work</a><a href="#top">Back to top</a></div></div></footer>
 </body>
 </html>
