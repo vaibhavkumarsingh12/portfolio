@@ -22,3 +22,18 @@
 .skill{display:flex;flex-direction:column;background:#fcfcf5;border:1px solid var(--line);border-radius:.55rem;padding:1.2rem}.skill h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.04em;margin:.4rem 0 .55rem}.skill p:not(.card-label){color:var(--subtle);margin-bottom:.8rem}.skill a{color:#244c3f;margin-top:auto;font-size:.92rem;font-weight:650;align-self:flex-start}
 @media(max-width:900px){.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:690px){.masthead{align-items:flex-start;flex-direction:column;gap:.55rem;padding-block:.75rem}.masthead nav{width:100%;justify-content:space-between;gap:.35rem;font-size:.86rem}.masthead nav a{padding-block:.2rem}.about{grid-template-columns:1fr}.portrait{width:min(100%,16.5rem)}.about-copy{grid-row:1}.skills-grid{grid-template-columns:1fr}}
+
+/* Career track */
+.career-intro .about-tags li{background:#edf1e7}
+.career-track{margin:0;padding:0 0 0 1.45rem;list-style:none;border-inline-start:1px solid #a8baaa;min-width:0}
+.career-track .entry{position:relative;padding:1.05rem 0;border-bottom:1px solid #c4cfc0}
+.career-track .entry:first-child{padding-top:0}.career-track .entry:last-child{border-bottom:0;padding-bottom:0}
+.career-track .entry:before{content:"";position:absolute;left:calc(-1.45rem - 4px);top:1.4rem;width:7px;height:7px;background:#62846f;border-radius:50%;outline:4px solid #e7ebdf}
+.career-track .entry:first-child:before{top:.8rem;background:#315d4b}
+.career-track .entry-current{background:#f3f6eb;border:1px solid #b6c9b8;border-radius:.55rem;padding:.9rem 1rem 1rem;margin-bottom:.35rem}
+.career-track .entry-current:first-child{padding-top:.85rem}
+.career-track .entry-current:first-child:before{left:calc(-1.45rem - 5px);top:1.3rem}
+.career-track .entry-meta{letter-spacing:.08em}.career-track .entry-company{font-size:.94rem;font-weight:700;margin:-.2rem 0 .3rem}
+.career-track .entry ul{margin:.55rem 0 0;padding-inline-start:1.25rem;color:var(--subtle)}.career-track .entry ul li+li{margin-top:.3rem}
+.career-track .entry a{color:#244c3f;font-weight:650}
+@media(max-width:690px){.career-track{padding-left:1.2rem}.career-track .entry:before{left:calc(-1.2rem - 4px)}.career-track .entry-current:first-child:before{left:calc(-1.2rem - 5px)}}
