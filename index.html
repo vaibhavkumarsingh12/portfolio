@@ -11,8 +11,8 @@
 <meta property="og:url" content="https://vaibhavkumarsingh12.github.io/portfolio/">
 <title>Vaibhav Kumar Singh | Business Analyst Portfolio</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23d4fb78'/%3E%3Cpath d='M9 11l6 18 6-18m2 0v18m0-8 8-10m-8 10 8 8' stroke='%23111a17' stroke-width='2.7' fill='none'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/portfolio.css?v=3">
-<script src="js/portfolio.js?v=2" defer></script>
+<link rel="stylesheet" href="css/portfolio.css?v=4">
+<script src="js/portfolio.js?v=4" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -22,7 +22,7 @@
     <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a class="nav-contact" href="#contact">Contact</a></nav>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
   <section class="hero" aria-labelledby="hero-title">
     <div class="shell hero-grid">
       <div class="hero-copy">
@@ -35,12 +35,20 @@
         <figcaption class="signal-cap"><span>FEATURED ANALYSIS</span><span>PATNA / RETAIL</span></figcaption>
         <div class="signal-inner">
           <p class="signal-question">Would customers pay more for faster delivery?</p>
-          <div class="signal-number">45.2<span>%</span></div>
-          <p class="signal-answer">said they wouldn’t.</p>
+          <div class="signal-reading" aria-live="polite" aria-atomic="true">
+            <div class="signal-number"><b id="response-value">45.2</b><span>%</span></div>
+            <p class="signal-answer" id="response-text">said they wouldn’t.</p>
+          </div>
           <div class="signal-bars" role="img" aria-label="Responses: No 45.2 percent, Maybe 38.7 percent, Yes 16.1 percent">
             <span class="seg no"></span><span class="seg maybe"></span><span class="seg yes"></span>
           </div>
-          <div class="legend" aria-hidden="true"><span><i></i>No</span><span><i></i>Maybe</span><span><i></i>Yes</span></div>
+          <p class="chart-hint" hidden>Explore the survey responses</p>
+          <div class="response-controls" role="group" aria-label="Explore survey responses" hidden>
+            <button type="button" data-response="no" aria-pressed="true"><i aria-hidden="true"></i>No</button>
+            <button type="button" data-response="maybe" aria-pressed="false"><i aria-hidden="true"></i>Maybe</button>
+            <button type="button" data-response="yes" aria-pressed="false"><i aria-hidden="true"></i>Yes</button>
+          </div>
+          <div class="legend"><span><i aria-hidden="true"></i>No</span><span><i aria-hidden="true"></i>Maybe</span><span><i aria-hidden="true"></i>Yes</span></div>
         </div>
         <div class="signal-footer"><span>ACADEMIC CUSTOMER RESEARCH</span><a href="#case-commerce">Read the case</a></div>
       </figure>
@@ -49,46 +57,50 @@
 
   <section class="work shell" id="work" aria-labelledby="work-title">
     <div class="section-top"><div><p class="eyebrow label">SELECTED WORK</p><h2 id="work-title">The decision behind the data.</h2></div><p class="section-note">What was the question, what did the evidence show, and what would I do next?</p></div>
-    <div class="filters" role="group" aria-label="Filter case studies" hidden>
-      <button type="button" data-filter="all" aria-pressed="true">All work</button>
-      <button type="button" data-filter="research" aria-pressed="false">Research</button>
-      <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
-      <button type="button" data-filter="quality" aria-pressed="false">Data quality</button>
-      <button type="button" data-filter="finance" aria-pressed="false">Finance</button>
+    <div class="work-tools" hidden>
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button type="button" data-filter="research" aria-pressed="false">Research</button>
+        <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
+        <button type="button" data-filter="quality" aria-pressed="false">Data quality</button>
+        <button type="button" data-filter="finance" aria-pressed="false">Finance</button>
+      </div>
+      <label class="work-search" for="case-search"><span class="sr-only">Search case studies</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><input id="case-search" type="search" placeholder="Search projects or tools" autocomplete="off" enterkeyhint="search" aria-controls="case-results"></label>
+      <div class="work-state"><p id="result-status" aria-live="polite" aria-atomic="true"></p><button class="reset-filters" type="button" hidden>Clear filters</button></div>
     </div>
-    <p id="result-status" class="sr-only" aria-live="polite"></p>
-    <div class="cases">
-      <article class="case case-feature" id="case-commerce" data-category="research">
+    <div class="no-results" hidden><p><strong>No case studies match your search.</strong></p><p>Try “Tableau”, “research”, or clear the filters.</p></div>
+    <div class="cases" id="case-results">
+      <article class="case case-feature" id="case-commerce" data-category="research" data-keywords="customer research survey pricing customer behavior">
         <div class="case-art commerce" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M-5 144L82 87l40 16 62-64 51 27 70-54M-5 175l98-61 35 16 60-65 50 24 67-50M-5 112l77-48 44 14 63-65 49 27 78-51" fill="none" stroke="currentColor" stroke-width="1"/><path d="M15 27h100M15 37h66M181 145h100M215 155h66" fill="none" stroke="currentColor"/><g fill="#d4fb78"><circle cx="82" cy="87" r="5"/><circle cx="184" cy="39" r="5"/><circle cx="235" cy="66" r="5"/></g></svg></div>
         <div class="case-body"><p class="card-label">CUSTOMER RESEARCH · ACADEMIC STUDY</p><h3>Quick commerce in Patna</h3><p>Is faster delivery worth charging for, or should platforms focus on making standard delivery more reliable?</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How are quick-commerce apps changing buying behavior in Patna, and is there demand for a faster-delivery fee?</dd><dt>Evidence</dt><dd>On the pricing question, 45.2% said no, 38.7% said maybe, and 16.1% said yes. These are stated preferences, not observed purchases.</dd><dt>Recommendation</dt><dd>Test clearer fees and more reliable standard delivery first. Run a small pricing test before treating faster delivery as a paid upgrade.</dd></dl></details>
         </div>
       </article>
-      <article class="case" id="case-downtime" data-category="operations">
+      <article class="case" id="case-downtime" data-category="operations" data-keywords="bi dashboard iot manufacturing tableau">
         <div class="case-art operations" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 30h264M18 65h264M18 100h264M18 135h264M50 12v146m50-146v146m50-146v146m50-146v146m50-146v146" fill="none" stroke="currentColor"/><path d="M36 135h27V91H36zm50 0h27V61H86zm50 0h27V77h-27zm50 0h27V33h-27zm50 0h27V97h-27z" fill="#3c7b71"/><path d="M186 135h27V33h-27z" fill="#baf380"/></svg></div>
         <div class="case-body"><p class="card-label">OPERATIONS ANALYTICS · JOB SIMULATION</p><h3>Manufacturing downtime</h3><p>A Tableau view to help operations teams decide where to investigate equipment downtime first.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Where should an operations team start investigating equipment downtime?</dd><dt>Approach</dt><dd>In Deloitte’s Forage job simulation, I built a Tableau dashboard to compare downtime across factory locations and device categories.</dd><dt>Recommendation</dt><dd>Start with the factory and device category showing the most downtime. Check device counts and maintenance records before attributing a cause.</dd></dl></details>
         </div>
       </article>
-      <article class="case" id="case-verification" data-category="quality">
+      <article class="case" id="case-verification" data-category="quality" data-keywords="verification data quality reconciliation data validation">
         <div class="case-art quality" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 39h44m-44 46h44m-44 46h44m35-92h51v46h42m-93 0h93m-93 46h51V85m73 0h52" fill="none" stroke="currentColor" stroke-width="2"/><g fill="none" stroke="#d4fb78" stroke-width="2"><rect x="62" y="27" width="35" height="24" rx="3"/><rect x="62" y="73" width="35" height="24" rx="3"/><rect x="62" y="119" width="35" height="24" rx="3"/><rect x="190" y="69" width="35" height="32" rx="3"/><path d="m199 85 5 5 10-12"/></g></svg></div>
         <div class="case-body"><p class="card-label">DATA VALIDATION · INTERNSHIP</p><h3>Field verification and reporting</h3><p>Making records from multiple districts easier to check, reconcile, and report.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How do you make sure records from different districts are ready to use in a consolidated report?</dd><dt>Approach</dt><dd>At Rodic Consultants, I verified and analyzed project records across districts in Bihar and took on team coordination responsibilities.</dd><dt>Takeaway</dt><dd>Keep verified records separate from items still needing follow-up. Reporting totals without showing what remains unresolved can give a misleading picture.</dd></dl></details>
         </div>
       </article>
-      <article class="case" id="case-screening" data-category="research">
+      <article class="case" id="case-screening" data-category="research" data-keywords="requirements source verification company screening">
         <div class="case-art screening" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M48 30h204L177 99v35l-54 15V99Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M77 52h146M100 74h100" stroke="currentColor" opacity=".7"/><circle cx="150" cy="87" r="10" fill="#d4fb78"/><path d="m145 87 3 3 6-7" stroke="#233827" stroke-width="2" fill="none"/></svg></div>
         <div class="case-body"><p class="card-label">REQUIREMENTS &amp; RESEARCH · ASSIGNMENT</p><h3>Screening companies before scoring</h3><p>How I caught a promising-looking manufacturer that didn’t meet the shortlist criteria.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How do you keep an ineligible company out of a shortlist when it looks promising at first glance?</dd><dt>Approach</dt><dd>I used AI to surface leads, then manually checked revenue and ownership against the screening rules. One candidate failed both checks, so I documented why and excluded it before scoring.</dd><dt>What changed</dt><dd>I moved revenue and ownership checks to the front of the workflow so each decision could be traced back to the evidence.</dd></dl></details>
         </div>
       </article>
-      <article class="case" id="case-earnings" data-category="finance">
+      <article class="case" id="case-earnings" data-category="finance" data-keywords="python finance nlp finbert">
         <div class="case-art finance" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M31 126h242M31 39v87M31 96h242M31 67h242" stroke="currentColor" fill="none"/><path d="m38 104 45-28 34 19 46-52 44 15 58-24" fill="none" stroke="#d4fb78" stroke-width="3"/><path d="m38 116 45-16 34 13 46-29 44 11 58-26" fill="none" stroke="#8de1cd" stroke-width="2" stroke-dasharray="5 6"/></svg></div>
         <div class="case-body"><p class="card-label">FINANCE ANALYTICS · EXPLORATORY PROJECT</p><h3>What bank filings are saying</h3><p>Comparing two ways to measure tone in SEC filings and see how it lines up with market data.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Do a finance-trained language model and a financial dictionary tell the same story about management’s tone?</dd><dt>Approach</dt><dd>I built a Python pipeline that extracts management commentary from SEC filings for five banks, scores it with FinBERT and a financial dictionary, and aligns the results with market moves and earnings surprises.</dd><dt>Takeaway</dt><dd>Compare the methods side by side before drawing conclusions. This is an exploratory analysis, not a forecast or a trading signal.</dd></dl><a class="repo-link" href="https://github.com/vaibhavkumarsingh12/SEC-Earnings-Sentiment-Analysis-Pipeline">View the source project</a></details>
         </div>
       </article>
-      <article class="case" id="case-cashflow" data-category="finance">
+      <article class="case" id="case-cashflow" data-category="finance" data-keywords="tableau dashboard finance cash flow">
         <div class="case-art automation" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M48 24h70l29 29v92H48zm70 0v29h29M168 42h83v11h-83zm0 22h65v11h-65zm0 22h83v11h-83zm0 22h53v11h-53z" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M67 83h60m-60 13h60m-60 13h38" stroke="#d4fb78" stroke-width="2"/></svg></div>
         <div class="case-body"><p class="card-label">FINANCIAL ANALYSIS · TABLEAU PROJECT</p><h3>When profit and cash tell different stories</h3><p>A dashboard examining a decade of financial statements for Apollo Micro Systems.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Did reported profit growth translate into operating cash flow?</dd><dt>Approach</dt><dd>I built a Tableau dashboard covering FY2016–FY2025 to compare profit after tax with operating cash flow and examine working-capital and share-dilution trends.</dd><dt>Takeaway</dt><dd>When profit and cash diverge, check which working-capital accounts moved before concluding that earnings quality improved or deteriorated.</dd></dl></details>

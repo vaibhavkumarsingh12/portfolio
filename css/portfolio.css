@@ -37,3 +37,46 @@
 .career-track .entry ul{margin:.55rem 0 0;padding-inline-start:1.25rem;color:var(--subtle)}.career-track .entry ul li+li{margin-top:.3rem}
 .career-track .entry a{color:#244c3f;font-weight:650}
 @media(max-width:690px){.career-track{padding-left:1.2rem}.career-track .entry:before{left:calc(-1.2rem - 4px)}.career-track .entry-current:first-child:before{left:calc(-1.2rem - 5px)}}
+
+/* Navigation, project explorer and survey interaction */
+:root{--nav-offset:6.25rem}
+[id]{scroll-margin-top:var(--nav-offset)}
+.header{position:sticky;top:0;z-index:3;background:#111a17f5;backdrop-filter:blur(10px)}
+.masthead nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding-block:.35rem}
+.masthead nav a[aria-current="location"]{color:var(--lime);text-decoration:underline;text-underline-offset:.45em;text-decoration-thickness:2px}
+.work-tools{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.6rem 1rem;margin-top:1.6rem}
+.work-tools .filters{margin:0}
+.filters button{min-height:44px}
+.work-search{display:flex;align-items:center;gap:.5rem;min-height:44px;padding:0 .75rem;border:1px solid #a4b0a4;border-radius:.45rem;background:#fcfcf5}
+.work-search:focus-within{outline:2px solid #00816d;outline-offset:2px}.work-search svg{width:1.15rem;height:1.15rem;flex:none;color:#426354}
+.work-search input{border:0;background:transparent;color:var(--ink);font:inherit;font-size:1rem;min-width:0;width:13.5rem;min-height:42px}
+.work-search input:focus{outline:0}.work-search input::placeholder{color:#4a5a51;opacity:1}
+.work-state{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;min-height:44px;color:var(--subtle);font-size:.91rem}
+.reset-filters{border:0;background:none;color:#244c3f;padding:.35rem .2rem;min-height:44px;text-decoration:underline;text-underline-offset:.2em;cursor:pointer;font-weight:650}
+.no-results{margin-top:1rem;padding:1rem 1.2rem;border:1px dashed #9bad9b;border-radius:.55rem;background:#fcfcf5;color:var(--subtle)}
+.case summary{min-height:44px;padding:.75rem 0 .2rem}
+.signal-number b{font-weight:inherit}.chart-hint{font-size:.82rem;color:#d1ded3;margin-top:.65rem}
+.response-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.35rem;margin-top:.4rem}
+.response-controls button{display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:44px;border:1px solid #9db3a46b;border-radius:.35rem;background:transparent;color:#f3f7ee;font-size:.85rem;font-weight:650;cursor:pointer}
+.response-controls button i{width:.43rem;height:.43rem;border-radius:50%;background:var(--lime)}
+.response-controls button[data-response="maybe"] i{background:var(--teal)}.response-controls button[data-response="yes"] i{background:#91a99a}
+.response-controls button[aria-pressed="true"]{border-color:var(--lime);background:#d4fb7819}
+.response-controls button:focus-visible{outline-color:var(--lime)}
+.signal[data-selected="no"] :is(.maybe,.yes),.signal[data-selected="maybe"] :is(.no,.yes),.signal[data-selected="yes"] :is(.no,.maybe){opacity:.58}
+.signal .seg{transition:opacity .2s ease}
+@media(max-width:780px){.work-tools{grid-template-columns:1fr}.work-search input{width:100%}}
+@media(max-width:690px){:root{--nav-offset:8.1rem}.masthead{gap:.2rem;padding-block:.55rem}.masthead nav{gap:.2rem}.work-tools{margin-top:1.25rem}.work-tools .filters{gap:.35rem}.filters button{padding-inline:.72rem}}
+@media(max-width:360px){.masthead nav{font-size:.81rem}.signal-cap,.signal-footer{padding-inline:.8rem}}
+@media(hover:hover){.response-controls button:hover{background:#ffffff17}.case:hover,.skill:hover{border-color:#749583}}
+@media(prefers-reduced-motion:no-preference){
+  .hero-copy{animation:rise-in .62s cubic-bezier(.21,.74,.35,1) both}
+  .signal{animation:rise-in .68s .09s cubic-bezier(.21,.74,.35,1) both}
+  .signal-bars{transform-origin:left;animation:chart-in .85s .18s cubic-bezier(.18,.8,.3,1) both}
+  .hero .status-dot{animation:dot-bloom 1.15s .13s ease-out 2}
+  .in-view{animation:rise-in .38s ease-out both}
+  .case,.skill{transition:border-color .18s,box-shadow .18s}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.case:hover,.skill:hover{box-shadow:0 10px 23px #172c1d15}}
+@keyframes rise-in{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes chart-in{from{opacity:.45;transform:scaleX(.2)}to{opacity:1;transform:scaleX(1)}}
+@keyframes dot-bloom{0%,100%{box-shadow:0 0 7px #d4fb7855}45%{box-shadow:0 0 17px #d4fb78c7}}
