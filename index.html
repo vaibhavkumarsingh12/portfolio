@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Vaibhav Kumar Singh, Business Analyst Intern in healthcare. Explore case studies in customer research, operations analytics, and data validation.">
+<meta name="description" content="Vaibhav Kumar Singh, Business Analyst Intern in healthcare. Explore case studies in customer research, operations, data quality, and finance.">
 <meta name="theme-color" content="#111a17">
 <meta property="og:title" content="Vaibhav Kumar Singh | Business Analyst">
 <meta property="og:description" content="Business analysis through customer research, operations analytics, and data validation.">
@@ -19,7 +19,7 @@
 <header class="header">
   <div class="shell masthead">
     <a class="brand" href="#top" aria-label="Vaibhav Kumar Singh, home"><span class="monogram" aria-hidden="true">VK</span><span>Vaibhav Kumar Singh</span></a>
-    <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a class="nav-contact" href="#contact">Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a class="nav-contact" href="#contact">Contact</a></nav>
   </div>
 </header>
 <main id="main">
@@ -54,6 +54,7 @@
       <button type="button" data-filter="research" aria-pressed="false">Research</button>
       <button type="button" data-filter="operations" aria-pressed="false">Operations</button>
       <button type="button" data-filter="quality" aria-pressed="false">Data quality</button>
+      <button type="button" data-filter="finance" aria-pressed="false">Finance</button>
     </div>
     <p id="result-status" class="sr-only" aria-live="polite"></p>
     <div class="cases">
@@ -63,18 +64,48 @@
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How are quick-commerce apps changing buying behavior in Patna, and is there demand for a faster-delivery fee?</dd><dt>Evidence</dt><dd>On the pricing question, 45.2% said no, 38.7% said maybe, and 16.1% said yes. These are stated preferences, not observed purchases.</dd><dt>Recommendation</dt><dd>Test clearer fees and more reliable standard delivery first. Run a small pricing test before treating faster delivery as a paid upgrade.</dd></dl></details>
         </div>
       </article>
-      <article class="case" data-category="operations">
+      <article class="case" id="case-downtime" data-category="operations">
         <div class="case-art operations" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 30h264M18 65h264M18 100h264M18 135h264M50 12v146m50-146v146m50-146v146m50-146v146m50-146v146" fill="none" stroke="currentColor"/><path d="M36 135h27V91H36zm50 0h27V61H86zm50 0h27V77h-27zm50 0h27V33h-27zm50 0h27V97h-27z" fill="#3c7b71"/><path d="M186 135h27V33h-27z" fill="#baf380"/></svg></div>
         <div class="case-body"><p class="card-label">OPERATIONS ANALYTICS · JOB SIMULATION</p><h3>Manufacturing downtime</h3><p>A Tableau view to help operations teams decide where to investigate equipment downtime first.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Where should an operations team start investigating equipment downtime?</dd><dt>Approach</dt><dd>In Deloitte’s Forage job simulation, I built a Tableau dashboard to compare downtime across factory locations and device categories.</dd><dt>Recommendation</dt><dd>Start with the factory and device category showing the most downtime. Check device counts and maintenance records before attributing a cause.</dd></dl></details>
         </div>
       </article>
-      <article class="case" data-category="quality">
+      <article class="case" id="case-verification" data-category="quality">
         <div class="case-art quality" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M18 39h44m-44 46h44m-44 46h44m35-92h51v46h42m-93 0h93m-93 46h51V85m73 0h52" fill="none" stroke="currentColor" stroke-width="2"/><g fill="none" stroke="#d4fb78" stroke-width="2"><rect x="62" y="27" width="35" height="24" rx="3"/><rect x="62" y="73" width="35" height="24" rx="3"/><rect x="62" y="119" width="35" height="24" rx="3"/><rect x="190" y="69" width="35" height="32" rx="3"/><path d="m199 85 5 5 10-12"/></g></svg></div>
         <div class="case-body"><p class="card-label">DATA VALIDATION · INTERNSHIP</p><h3>Field verification and reporting</h3><p>Making records from multiple districts easier to check, reconcile, and report.</p>
           <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How do you make sure records from different districts are ready to use in a consolidated report?</dd><dt>Approach</dt><dd>At Rodic Consultants, I verified and analyzed project records across districts in Bihar and took on team coordination responsibilities.</dd><dt>Takeaway</dt><dd>Keep verified records separate from items still needing follow-up. Reporting totals without showing what remains unresolved can give a misleading picture.</dd></dl></details>
         </div>
       </article>
+      <article class="case" id="case-screening" data-category="research">
+        <div class="case-art screening" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M48 30h204L177 99v35l-54 15V99Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M77 52h146M100 74h100" stroke="currentColor" opacity=".7"/><circle cx="150" cy="87" r="10" fill="#d4fb78"/><path d="m145 87 3 3 6-7" stroke="#233827" stroke-width="2" fill="none"/></svg></div>
+        <div class="case-body"><p class="card-label">REQUIREMENTS &amp; RESEARCH · ASSIGNMENT</p><h3>Screening companies before scoring</h3><p>How I caught a promising-looking manufacturer that didn’t meet the shortlist criteria.</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>How do you keep an ineligible company out of a shortlist when it looks promising at first glance?</dd><dt>Approach</dt><dd>I used AI to surface leads, then manually checked revenue and ownership against the screening rules. One candidate failed both checks, so I documented why and excluded it before scoring.</dd><dt>What changed</dt><dd>I moved revenue and ownership checks to the front of the workflow so each decision could be traced back to the evidence.</dd></dl></details>
+        </div>
+      </article>
+      <article class="case" id="case-earnings" data-category="finance">
+        <div class="case-art finance" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M31 126h242M31 39v87M31 96h242M31 67h242" stroke="currentColor" fill="none"/><path d="m38 104 45-28 34 19 46-52 44 15 58-24" fill="none" stroke="#d4fb78" stroke-width="3"/><path d="m38 116 45-16 34 13 46-29 44 11 58-26" fill="none" stroke="#8de1cd" stroke-width="2" stroke-dasharray="5 6"/></svg></div>
+        <div class="case-body"><p class="card-label">FINANCE ANALYTICS · EXPLORATORY PROJECT</p><h3>What bank filings are saying</h3><p>Comparing two ways to measure tone in SEC filings and see how it lines up with market data.</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Do a finance-trained language model and a financial dictionary tell the same story about management’s tone?</dd><dt>Approach</dt><dd>I built a Python pipeline that extracts management commentary from SEC filings for five banks, scores it with FinBERT and a financial dictionary, and aligns the results with market moves and earnings surprises.</dd><dt>Takeaway</dt><dd>Compare the methods side by side before drawing conclusions. This is an exploratory analysis, not a forecast or a trading signal.</dd></dl><a class="repo-link" href="https://github.com/vaibhavkumarsingh12/SEC-Earnings-Sentiment-Analysis-Pipeline">View the source project</a></details>
+        </div>
+      </article>
+      <article class="case" id="case-cashflow" data-category="finance">
+        <div class="case-art automation" aria-hidden="true"><svg viewBox="0 0 300 170" focusable="false"><path d="M48 24h70l29 29v92H48zm70 0v29h29M168 42h83v11h-83zm0 22h65v11h-65zm0 22h83v11h-83zm0 22h53v11h-53z" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M67 83h60m-60 13h60m-60 13h38" stroke="#d4fb78" stroke-width="2"/></svg></div>
+        <div class="case-body"><p class="card-label">FINANCIAL ANALYSIS · TABLEAU PROJECT</p><h3>When profit and cash tell different stories</h3><p>A dashboard examining a decade of financial statements for Apollo Micro Systems.</p>
+          <details><summary>Read the case study</summary><dl><dt>Question</dt><dd>Did reported profit growth translate into operating cash flow?</dd><dt>Approach</dt><dd>I built a Tableau dashboard covering FY2016–FY2025 to compare profit after tax with operating cash flow and examine working-capital and share-dilution trends.</dd><dt>Takeaway</dt><dd>When profit and cash diverge, check which working-capital accounts moved before concluding that earnings quality improved or deteriorated.</dd></dl></details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about shell" id="about" aria-labelledby="about-title">
+    <figure class="portrait">
+      <img src="assets/vaibhav-portrait.webp" width="520" height="805" alt="Portrait of Vaibhav Kumar Singh" loading="lazy" decoding="async">
+      <figcaption><strong>Vaibhav Kumar Singh</strong><span>BUSINESS ANALYST INTERN · HEALTHCARE</span></figcaption>
+    </figure>
+    <div class="about-copy"><p class="eyebrow label">ABOUT ME</p><h2 id="about-title">Find the right question first.</h2>
+      <p>I’m a healthcare Business Analyst Intern and a BBA graduate from BIT Mesra, where I minored in Data Science. I enjoy projects that start with a decision: whether a service is worth charging for, which records need a second look, or whether a company belongs on a shortlist.</p>
+      <p>My background spans customer relationship management at Policybazaar and data verification at Rodic Consultants. I like making the trail from source data to recommendation easy for someone else to follow.</p>
+      <ul class="about-tags"><li>BBA + Data Science minor</li><li>Customer research</li><li>Operations &amp; financial analysis</li></ul>
     </div>
   </section>
 
@@ -83,12 +114,23 @@
       <div><p class="eyebrow label">EXPERIENCE</p><h2 id="experience-title">Business first.<br>Data to back it up.</h2><p class="section-note">My background combines business administration with hands-on research, data verification, and BI reporting.</p></div>
       <div>
         <div class="entry"><p class="entry-meta"><span class="status-dot" aria-hidden="true"></span> CURRENT · HEALTHCARE</p><h3>Business Analyst Intern</h3><p>I’m currently interning as a Business Analyst in healthcare.</p></div>
+        <div class="entry"><p class="entry-meta">JAN–APR 2026 · INSURANCE</p><h3>Policybazaar</h3><p>Executive, Relationship Management. Worked in health-insurance customer operations.</p></div>
         <div class="entry"><p class="entry-meta">EARLIER EXPERIENCE</p><h3>Rodic Consultants</h3><p>Field verification, data analysis, and team coordination on a multi-district project in Bihar.</p></div>
         <div class="entry"><p class="entry-meta">EDUCATION · 2025</p><h3>Birla Institute of Technology, Mesra</h3><p>BBA, minor in Data Science · CGPA 8.94</p></div>
       </div>
     </div>
   </section>
-  <section class="toolkit shell" aria-labelledby="tools-title"><div><p class="eyebrow label">TOOLKIT</p><h2 id="tools-title">How I work</h2></div><ul class="pills"><li>Customer research</li><li>Process analysis</li><li>Data validation</li><li>Excel</li><li>SQL</li><li>Tableau</li><li>Power BI</li><li>Python</li></ul></section>
+  <section class="skills shell" id="skills" aria-labelledby="skills-title">
+    <div class="section-top"><div><p class="eyebrow label">SKILLS</p><h2 id="skills-title">Tools, with proof of work.</h2></div><p class="section-note">The methods and tools I use at each stage, from framing the question to explaining the result.</p></div>
+    <div class="skills-grid">
+      <article class="skill"><p class="card-label">FRAME THE DECISION</p><h3>Business analysis &amp; research</h3><p>Requirements, screening criteria, survey design, and source verification.</p><a href="#case-screening">See company screening</a></article>
+      <article class="skill"><p class="card-label">MAKE PERFORMANCE VISIBLE</p><h3>Dashboards &amp; reporting</h3><p>Power BI (DAX, Power Query), Tableau (calculated fields, LOD expressions), and Excel (pivot tables, lookups).</p><a href="#case-downtime">See the downtime analysis</a></article>
+      <article class="skill"><p class="card-label">CHECK THE INPUTS</p><h3>SQL &amp; data quality</h3><p>Joins, CTEs, window functions, data profiling, reconciliation, and exception tracking.</p><a href="#case-verification">See field verification</a></article>
+      <article class="skill"><p class="card-label">INTERPRET THE NUMBERS</p><h3>Finance &amp; customer analytics</h3><p>Cash-flow and working-capital analysis, customer segmentation, and churn modeling.</p><a href="#case-cashflow">See the financial dashboard</a></article>
+      <article class="skill"><p class="card-label">RESEARCH AT SCALE</p><h3>Python &amp; statistics</h3><p>Pandas, NumPy, exploratory analysis, and comparisons between analytical methods.</p><a href="#case-earnings">See the SEC filings project</a></article>
+      <article class="skill"><p class="card-label">REDUCE MANUAL WORK</p><h3>Workflow prototyping</h3><p>Turning repeated data tasks into a repeatable process, such as extracting editable text from PDFs and images.</p><a href="https://github.com/vaibhavkumarsingh12/ocr-converter-for-mistral.ai">See the OCR prototype</a></article>
+    </div>
+  </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="shell contact-grid"><div><p class="eyebrow">CONTACT</p><h2 id="contact-title">Let’s talk business analysis.</h2><p>I’m interested in roles that bring together research, operations, and reporting.</p></div><a class="button dark" href="https://www.linkedin.com/in/vaibhav-singh-592099255">Connect on LinkedIn</a></div>

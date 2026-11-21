@@ -18,17 +18,19 @@
   controls.hidden = false;
   buttons.forEach((button) => button.addEventListener('click', () => showCases(button)));
 
-  function openFeaturedCase() {
-    if (window.location.hash !== '#case-commerce') return;
-    const featured = document.querySelector('#case-commerce');
-    const wasHidden = featured.hidden;
+  function openLinkedCase() {
+    const match = cases.find((item) => '#' + item.id === window.location.hash);
+    if (!match) return;
+    const wasHidden = match.hidden;
     if (wasHidden) showCases(buttons[0]);
-    featured.querySelector('details').open = true;
-    if (wasHidden) featured.scrollIntoView({block: 'start'});
+    match.querySelector('details').open = true;
+    if (wasHidden) match.scrollIntoView({block: 'start'});
   }
-  window.addEventListener('hashchange', openFeaturedCase);
-  document.querySelector('.signal-footer a').addEventListener('click', () => {
-    if (window.location.hash === '#case-commerce') openFeaturedCase();
+  window.addEventListener('hashchange', openLinkedCase);
+  document.querySelectorAll('a[href^="#case-"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.location.hash === link.hash) openLinkedCase();
+    });
   });
-  openFeaturedCase();
+  openLinkedCase();
 })();

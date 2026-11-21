@@ -9,3 +9,16 @@
 @media(max-width:690px){.shell{width:calc(100% - 2rem)}.masthead{min-height:68px}.brand{font-size:.85rem}.masthead nav{gap:.65rem;font-size:.8rem}.nav-contact{border:0;padding:0}.monogram{width:1.8rem;height:1.8rem;font-size:.78rem}.hero-grid,.section-top,.experience-grid,.toolkit{grid-template-columns:1fr}.hero-grid{gap:2.2rem}.hero h1{font-size:clamp(2.85rem,10.7vw,4.8rem)}.cases{grid-template-columns:1fr}.case-art{height:130px}.section-top,.toolkit{gap:1rem}.contact-grid{align-items:flex-start;flex-direction:column}.foot-content{align-items:flex-start;flex-direction:column;gap:.6rem;padding-block:1rem}}
 @media(max-width:365px){.masthead{align-items:flex-start;flex-direction:column;gap:.45rem;padding-block:.65rem}.masthead nav{gap:1.25rem}.hero .eyebrow{font-size:.69rem}.signal-cap,.signal-footer{font-size:.69rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+/* Expanded profile and evidence-linked skills */
+.screening{background:#24352b;color:#80a282}.finance{background:#172d30;color:#527b75}.automation{background:#282f27;color:#789481}
+.case-body .repo-link{display:inline-block;margin-top:.8rem;font-weight:650;color:#244c3f;font-size:.88rem}
+.about{display:grid;grid-template-columns:minmax(12rem,.65fr) minmax(0,1.35fr);gap:clamp(1.5rem,6vw,6rem);align-items:center;padding-block:clamp(3rem,7vw,6rem);border-top:1px solid var(--line)}
+.portrait{max-width:22rem;background:var(--dark);color:var(--light);border:1px solid #536f60;border-radius:.7rem;overflow:hidden}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1.12;object-fit:cover;object-position:50% 52%;background:#edf2ee}
+.portrait figcaption{display:grid;gap:.15rem;padding:.85rem 1rem}.portrait figcaption span{color:var(--teal);font:650 .69rem/1.5 var(--mono);letter-spacing:.08em}
+.about-copy p:not(.eyebrow){margin-top:1rem;color:var(--subtle);max-width:40rem}.about-tags{display:flex;gap:.45rem;flex-wrap:wrap;list-style:none;padding:0;margin:1.2rem 0 0}.about-tags li{font-size:.86rem;padding:.3rem .65rem;border:1px solid #aebcaf;border-radius:2rem}
+.skills{padding-block:clamp(3rem,7vw,6rem)}.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.65rem}
+.skill{display:flex;flex-direction:column;background:#fcfcf5;border:1px solid var(--line);border-radius:.55rem;padding:1.2rem}.skill h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.04em;margin:.4rem 0 .55rem}.skill p:not(.card-label){color:var(--subtle);margin-bottom:.8rem}.skill a{color:#244c3f;margin-top:auto;font-size:.92rem;font-weight:650;align-self:flex-start}
+@media(max-width:900px){.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:690px){.masthead{align-items:flex-start;flex-direction:column;gap:.55rem;padding-block:.75rem}.masthead nav{width:100%;justify-content:space-between;gap:.35rem;font-size:.86rem}.masthead nav a{padding-block:.2rem}.about{grid-template-columns:1fr}.portrait{width:min(100%,16.5rem)}.about-copy{grid-row:1}.skills-grid{grid-template-columns:1fr}}
